@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# find shorthand
+function f() {
+  find . -name "$1" 2>&1 | grep -v 'Permission denied'
+}
+
+# copy a file/dir recursively to ~/backups prompting for overwrites
+backup() {
+  cp -rvi $1 ~/backups/
+}
+
+# like cd but fuzzy
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+# save screen capture of selection to captures directory
+scs() {
+   scrot -s '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/captures/'
+}
+
+# find files matching $1 and replace all $1 with $2 making backups of changed files (.back)
+# forward slashed must be escaped.
+ag-replace() {
+  ag $1 --files-with-matches | xargs -I {} sed -i '.back' -e "s/$1/$2/g" {}
+}
+
+# ----- AWS commands ---------
+# requires yawsi (go get github.com/amitsaha/yawsi)
+
+# AWS SSH searchable by tags
+# usage:
+# aws-ssh dev
+# aws-ssh dev projects_dao
+# aws-ssh -i i-00827c6b810d8a2f2
+aws-ssh() {
+  profile=$1
+  filter=""
+  shift
+  while (( $# > 0)); do
+    case $1 in
+      -i|--instance) filter="--instance-id=$2"
+          break
+          ;;
+      *) filter="--tags=role:$1"
+          break
+    esac
+    shift
+  done
+  # if no role or instance is provided then fetches all instances, this is quite slow though
+  host=$(AWS_PROFILE=$profile yawsi ec2 describe-instances $filter --list-format "{{.PrivateIPAddresses}} : {{.PublicIP}}")
+  private_ip=$(echo $host | awk -F ":" '{print $1}' | awk '{$1=$1;print}' | tr -d "[]")
+  public_ip=$(echo $host | awk -F ":" '{print $2}' | awk '{$1=$1;print}' | tr -d "[]")
+  if ! [ -z "$public_ip" ]; then
+    ssh awright@$public_ip
+  else
+    ssh awright@$private_ip
+  fi
+}
+
+aws-asg() {
+  AWS_PROFILE=$1 yawsi ec2 describe-asgs
+}
