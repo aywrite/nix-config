@@ -7,9 +7,6 @@
 # Enable aliases to be sudo’ed
 alias sudo="sudo "
 
-# use nvim in place of vim/vi
-alias vim="nvim"
-alias vi="nvim"
 # fuzzy search for file and open in vim
 alias vf="vim \$(fzf)"
 
