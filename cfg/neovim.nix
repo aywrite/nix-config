@@ -1,5 +1,8 @@
 { pkgs, ... }:
-
+let
+   customPlugins = pkgs.callPackage ./vim/plugins.nix {};
+   vimRC = builtins.readFile ./vim/vimrc;
+in
 {
   programs.neovim = {
     enable = true;
@@ -11,8 +14,8 @@
     withPython3 = true;
 
     configure = {
-      customRC = builtins.readFile ./vimrc;
-      plug.plugins = with pkgs.vimPlugins; [
+      customRC = vimRC;
+      plug.plugins = with pkgs.vimPlugins // customPlugins; [
         fzf-vim
         #vim-rooter
 	    vim-colors-solarized
@@ -41,8 +44,8 @@
         vim-javascript
         vim-puppet
         rust-vim
-        #arcanist
-        #thrift
+        arcanist
+        thrift
         vim-beancount
 	    vim-nix
         LanguageClient-neovim
