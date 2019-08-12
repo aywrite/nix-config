@@ -19,11 +19,43 @@ nmap <leader>s :call LanguageClient_textDocument_documentSymbol()<CR>
 nmap <leader>f :call LanguageClient_textDocument_formatting()<CR>
 nmap <leader>n :call LanguageClient_textDocument_rename()<CR>
 
-let g:lsp_signs_enabled = 1           " enable signs
-let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+let g:LanguageClient_changeThrottle = 0.5
+let g:LanguageClient_diagnosticsDisplay = {
+            \ 1: {
+            \     "name": "Error",
+            \     "texthl": "ALEError",
+            \     "signText": "!",
+            \     "signTexthl": "ALEErrorSign",
+            \     "virtualTexthl": "Error",
+            \ },
+            \ 2: {
+            \     "name": "Warning",
+            \     "texthl": "ALEWarning",
+            \     "signText": ">",
+            \     "signTexthl": "ALEWarningSign",
+            \     "virtualTexthl": "Todo",
+            \ },
+            \ 3: {
+            \     "name": "Information",
+            \     "texthl": "ALEInfo",
+            \     "signText": "ℹ",
+            \     "signTexthl": "ALEInfoSign",
+            \     "virtualTexthl": "Todo",
+            \ },
+            \ 4: {
+            \     "name": "Hint",
+            \     "texthl": "ALEInfo",
+            \     "signText": "~",
+            \     "signTexthl": "ALEInfoSign",
+            \     "virtualTexthl": "Todo",
+            \ },
+            \ }
 
 " completion
 let g:deoplete#enable_at_startup = 1
+call deoplete#custom#source('LanguageClient','mark', '>')
+call deoplete#custom#source('LanguageClient', 'rank', 500)
+call deoplete#custom#source('LanguageClient', 'min_pattern_length', 3)
 
 " Default indentation settings
 set tabstop=4
@@ -55,6 +87,23 @@ syntax enable
 " linting
 let g:ale_rust_cargo_use_check = 1
 let g:ale_rust_cargo_check_all_targets = 1
+let g:ale_sign_error = '!'
+let g:ale_sign_warning = '>'
+let g:ale_rust_rls_config = {
+	\ 'rust': {
+		\ 'all_targets': 1,
+		\ 'build_on_save': 1,
+		\ 'clippy_preference': 'on'
+	\ }
+	\ }
+let g:ale_rust_rls_toolchain = ''
+let g:ale_linters = {'rust': ['rls']}
+highlight ALEErrorSign ctermfg=red
+highlight ALEWarningSign ctermfg=yellow
+let g:ale_sign_error = "✖"
+let g:ale_sign_warning = "⚠"
+let g:ale_sign_info = "i"
+let g:ale_sign_hint = "➤"
 
 " use fzf as ctl-p
 nnoremap <silent> <C-p> :Files<CR>
