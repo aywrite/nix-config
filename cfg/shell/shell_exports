@@ -1,8 +1,8 @@
 #! /usr/bin/env zsh
 
 # Defaults
-export SHELL=/bin/zsh
-export EDITOR='vim'
+export SHELL=zsh
+export EDITOR='nvim'
 export DEFAULT_USER=andrewwright
 
 # Directory Env Vars

@@ -13,7 +13,7 @@ in {
   # .zshenv
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = false;
+    enableAutosuggestions = true;
     enableCompletion = true;
     history = {
       ignoreDups = true;

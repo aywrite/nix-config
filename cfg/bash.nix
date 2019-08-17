@@ -13,5 +13,8 @@ in {
       # Fixes issue with cannot set locale
       export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
     '' + extraInitExtra;
+    profileExtra = ''
+      source $HOME/.nix-profile/etc/profile.d/nix.sh
+    '';
   };
 }

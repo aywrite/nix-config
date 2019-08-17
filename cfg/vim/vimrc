@@ -4,7 +4,7 @@
 let mapleader = ","
 
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly-2019-02-08', 'rls'],
+    \ 'rust': ['~/.cargo/bin/rustup',  'run', 'stable', 'rls'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'typescript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
@@ -53,9 +53,8 @@ let g:LanguageClient_diagnosticsDisplay = {
 
 " completion
 let g:deoplete#enable_at_startup = 1
-call deoplete#custom#source('LanguageClient','mark', '>')
-call deoplete#custom#source('LanguageClient', 'rank', 500)
-call deoplete#custom#source('LanguageClient', 'min_pattern_length', 3)
+call deoplete#custom#source('LanguageClient','mark', 'LC')
+call deoplete#custom#source('LanguageClient', 'rank', 1000)
 
 " Default indentation settings
 set tabstop=4
@@ -219,7 +218,6 @@ autocmd FileType rust nmap <leader>b :Dispatch cargo build<CR>
 autocmd FileType rust nmap <leader>t :Dispatch<CR>
 autocmd FileType rust nmap <leader>c :Dispatch cargo check<CR>
 
-"nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 let g:rustfmt_autosave = 1
 let g:racer_cmd = "/Users/andrewwright/.cargo/bin/racer"
 
