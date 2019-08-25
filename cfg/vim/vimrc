@@ -1,7 +1,7 @@
 "" --- language server ---
 
 " remap leader
-let mapleader = ","
+let mapleader = "\<Space>"
 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup',  'run', 'stable', 'rls'],
@@ -55,6 +55,12 @@ let g:LanguageClient_diagnosticsDisplay = {
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#source('LanguageClient','mark', 'LC')
 call deoplete#custom#source('LanguageClient', 'rank', 1000)
+
+" Always draw sign column. Prevent buffer moving when adding/deleting sign.
+set signcolumn=yes
+
+" Leave paste mode when leaving insert mode
+autocmd InsertLeave * set nopaste
 
 " Default indentation settings
 set tabstop=4
