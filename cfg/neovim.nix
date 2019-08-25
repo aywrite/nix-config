@@ -17,7 +17,8 @@ in
       customRC = vimRC;
       plug.plugins = with pkgs.vimPlugins // customPlugins; [
         fzf-vim
-        #vim-rooter
+        fzfWrapper
+        vim-rooter
 	    vim-colors-solarized
         vim-tmux-navigator
         supertab

@@ -11,6 +11,17 @@
     };
   };
 
+  vim-rooter = pkgs.vimUtils.buildVimPlugin {
+    pname = "vim-rooter";
+    version = "2019-02-25";
+    src = pkgs.fetchFromGitHub {
+      owner = "airblade";
+      repo = "vim-rooter";
+      rev = "7db12da2d63b6da5cdb968b29788de5e2beec14d";
+      sha256 = "1dw9d69hvgnsjbj5qksbwb70kpnlba5nnygwq0baclnk7k5x1mbp";
+    };
+  };
+
   thrift = pkgs.vimUtils.buildVimPlugin {
     name = "thrift";
     src = pkgs.fetchFromGitHub {
