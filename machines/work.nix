@@ -9,6 +9,7 @@
     ../cfg/firefox.nix
   ];
   home.file.".xmonad".source = ~/dotfiles/xmonad;
+  home.file."bin/brightness".source = ./work/brightness;
   home.sessionVariables.LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
 
 
