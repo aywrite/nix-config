@@ -13,9 +13,8 @@ in
 
     withPython3 = true;
 
-    configure = {
-      customRC = vimRC;
-      plug.plugins = with pkgs.vimPlugins // customPlugins; [
+    extraConfig = vimRC;
+    plugins = with pkgs.vimPlugins // customPlugins; [
         fzf-vim
         fzfWrapper
         vim-rooter
@@ -52,7 +51,6 @@ in
         LanguageClient-neovim
         deoplete-nvim
         deoplete-go
-      ];
-    };
+    ];
   };
 }
