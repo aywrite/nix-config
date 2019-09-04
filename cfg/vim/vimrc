@@ -112,7 +112,7 @@ let g:ale_sign_hint = "➤"
 
 " use fzf as ctl-p
 nnoremap <silent> <C-p> :Files<CR>
-nmap <leader>; :Buffers<CR>
+nmap <leader><leader> :Buffers<CR>
 
 " use rg for grep
 if executable('rg')
