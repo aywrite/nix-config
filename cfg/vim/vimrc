@@ -53,8 +53,8 @@ let g:LanguageClient_diagnosticsDisplay = {
 
 " completion
 let g:deoplete#enable_at_startup = 1
-call deoplete#custom#source('LanguageClient','mark', 'LC')
-call deoplete#custom#source('LanguageClient', 'rank', 1000)
+"call deoplete#custom#source('LanguageClient','mark', 'LC')
+"call deoplete#custom#source('LanguageClient', 'rank', 1000)
 
 " Always draw sign column. Prevent buffer moving when adding/deleting sign.
 set signcolumn=yes
