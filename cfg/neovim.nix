@@ -16,6 +16,7 @@ in
     extraConfig = vimRC;
     plugins = with pkgs.vimPlugins // customPlugins; [
         fzf-vim
+        coc-nvim
         fzfWrapper
         vim-rooter
 	    vim-colors-solarized
@@ -49,8 +50,6 @@ in
         vim-beancount
 	    vim-nix
         LanguageClient-neovim
-        deoplete-nvim
-        deoplete-go
     ];
   };
 }

@@ -1,0 +1,5 @@
+xrdb -DSOLARIZED_DARK -load ~/.Xresources
+export TERMINAL=urxvt
+
+# set key repeat rate/speed
+xset r rate 220 40

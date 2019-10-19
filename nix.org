@@ -1,0 +1,51 @@
+#+TITLE Nix helpful tips and thoughts
+* fix nvim after rebuild
+~:UpdateRemotePlugins~
+* Resources
+[[https://www.youtube.com/watch?v=0pqdOnQKMKE][Youtube video on nix for your home system]]
+* Creating custom vim packages
+To get the sha256 for a vim package from github:
+~nix-prefetch-url --unpack https://github.com/NixOS/nix/archive/1f795f9f44607cc5bec70d1300150bfefcef2aae.zip~
+* Helpful reddit post
+ I use nix-darwin to share much of my config between macOS and NixOS. So I have three subdirectories in my dotfiles repo:
+
+The darwin specific configuration
+
+The common configuration
+
+The NixOS specific configuration
+
+Within each OS-specific directory, I have a subdirectory for each machine of that OS. Each machine has a configuration.nix with any configuration that's custom to that machine, including importing hardware-configuration.nix for the NixOS machines. In <os-name>/default.nix, I have any configuration that's specific to that OS and used on all machines of that OS, e.g. nixos/default.nix has all the display manager configuration and darwin/default.nix has some custom SSH config since Apple's defaults are dumb. <os-name>/default.nix then imports common/default.nix, which configures all the packages I use and services offered by both NixOS and nix-darwin.
+
+There are three git submodules in the repo.
+
+nixpkgs-channels, which currently tracks 18.03. Whenever I build my system, I make sure to do so with -I nixpkgs=./nixpkgs. I don't use channels because I want to pin the version of nixpkgs down. I do it this way instead of setting it in NIX_PATH because I want to be able to mess with changes to dotfiles/nixpkgs without worrying about messing up outside use of <nixpkgs>. In my configuration, I have nix.nixPath = ["nixpkgs=${pkgs.path}" ...];, which means that my NIX_PATH always reflects the version of nixpkgs that the system was built with. The string interpolation causes Nix to copy nixpkgs into the nix store, which has the added benefits of making the system nixpkgs immutable, and making new installs of my config come with the desired version of nixpkgs out of the box.
+
+nix-darwin. Again, I don't use channels for this because I want to pin it down. I don't really hack on nix-darwin, so this isn't really here to hack on it. But I do the same as I did with nixpkgs because I think it's a good model.
+
+home-manager. I use this on both NixOS and darwin. It's only useful on darwin to manage the installation of files in the home directory, but that's pretty much the only thing I use it for anyway. I have a PR open on home-manager that adds a nix-darwin module. Between that and the NixOS module it already has, home-manager is just automatically integrated into the rebuild process without any extra commands.
+
+I use base16 to theme everything. My emacs, GTK, and Xresources, among other things, are all themed with the exact same colors. I haven't decided on a color scheme that I like best yet, but at least everything is consistent.
+
+On NixOS, I use pulseaudio, lightdm for login, xfce as a DE, and xmonad as a WM. My xmonad config is really simple, but I actually build it with Nix. I have an ordinary cabal package in the repo that I use haskellPackages.callCabal2nix on to build. Then the home-manager portion of my config links the resulting executable to ~/.xmonad/xmonad-x86_64-linux. So my xmonad config is updated by an ordinary system rebuild. This is also nice because 1) I can depend on arbitrary Nix packages, and 2) installing a new system will automatically have the right xmonad config on first boot. In fact, I use home-manager to the point that when I install a new system, I have basically a complete environment with all my configs and preferences even before the first boot. Ensuring this really helps make sure that all my systems are nearly identical, since everything is declarative.
+
+I install a lot of custom versions of packages by just overriding the source. Any source that I manually set is declared in common/sources.nix, imported in an overlay, and referenced where needed as pkgs.sources.foo. I usually update these packages periodically just to keep up to date, so having them all listed in one file means I can just do a big batch every now and then, ensuring nothing gets forgotten.
+
+I try to avoid updating sources manually though. When possible, I prefer to simply install the package from nixpkgs-unstable. So in my overlays, I have unstable = import sources.unstable config.nixpkgs;, which lets me get any package from unstable by just using pkgs.unstable.foo.
+
+Finally, I don't actually use nixos-rebuild. I have a NixOps deployment with a machine configured with targetHost = "localhost";. There are 3 main reasons for this:
+
+I have a Hydra server that runs on my desktop, so I have a few resources provisioned by NixOps. It's actually in a NixOS container so that its disk pollution is contained, and so that it doesn't configure any services in the main system. NixOps can deploy to NixOS containers, so the Hydra instance is just another machine in the deployment. And the server uploads builds to an S3 cache, so that is also provisioned by NixOps.
+
+NixOps handles system.stateVersion for me so that I don't have to :P It also remembers -I nixpkgs=./nixpkgs, whereas with nixos-rebuild I'd have to always add that argument.
+
+I use NixOps's deployment.keys functionality to manage secrets like SSH keys or openvpn configs. I can do this declaratively without checking keys into the repo using this pass integration I wrote about.
+
+I'm not thrilled with my use of NixOps. It's possible I'll look for some other way to solve the same problems, but it's been working well enough. I also have a virtualbox.nix, which is a NixOps deployment that runs my config in a VirtualBox. I can use this to test that a clean install has everything out of the box, and it lets me test much riskier things without leaving the comfort of my preferred environment.
+
+So my config is pretty complex, but also extremely reproducible and declarative. My dotfiles repo isn't online anywhere right now, but I may put it on GitHub once I clean up the code and make sure there's no accidental secrets anywhere.
+
+* Tips
+Put all configs in ~/etc/nixos~ - this is a clone of the github repo
+~/etc/nixos/configuration.nix~ is a symlink to ~machines/HOSTNAME.nix~
+~/etc/nixos/hardware-configuration.nix~ is a symlink to ~hardware-configurations/HOSTNAME.nix~
