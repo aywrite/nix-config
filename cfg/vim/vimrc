@@ -19,6 +19,7 @@ nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>r <Plug>(coc-rename)
 nmap <silent> <leader>d :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -45,10 +46,8 @@ let g:LanguageClient_serverCommands = {
 nmap <leader>m :call LanguageClient_contextMenu()<CR>
 "nmap <leader>d :call LanguageClient_textDocument_hover()<CR>
 "nmap <leader>g :call LanguageClient_textDocument_definition()<CR>
-nmap <leader>r :call LanguageClient_textDocument_references()<CR>
 nmap <leader>s :call LanguageClient_textDocument_documentSymbol()<CR>
 nmap <leader>f :call LanguageClient_textDocument_formatting()<CR>
-nmap <leader>n :call LanguageClient_textDocument_rename()<CR>
 
 let g:LanguageClient_changeThrottle = 0.5
 let g:LanguageClient_diagnosticsDisplay = {
@@ -277,3 +276,7 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 
 " ------ ledger settings -------
 autocmd BufNewFile,BufRead *.journal set filetype=ledger
+
+" ------ docker settings -------
+"let docker_highlight_all=1
+"autocmd BufNewFile,BufRead *Dockerfile* set filetype=docker
