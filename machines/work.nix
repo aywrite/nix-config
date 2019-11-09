@@ -17,6 +17,7 @@
     alacritty
     fzf
     firefox
+    cointop
     (python3.withPackages(ps: [
       ps.python-language-server
       ps.setuptools
