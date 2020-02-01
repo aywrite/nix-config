@@ -1,6 +1,6 @@
 # Andrew Wright's Dotfiles/Nix Config
 
-I use [nix]() and [home manager]() to manage my applications and dotfiles.
+I use [nix](https://nixos.org/nix/) and [home manager](https://github.com/rycee/home-manager) to manage my applications and dotfiles.
 
 I use `zsh` as my main shell, customized using `oh-my-zsh`.
 
@@ -8,8 +8,6 @@ TODO update screenshot
 ![Terminal.app](https://raw.github.com/nicksp/dotfiles/master/iterm/nick-terminal.png)
 
 ## Installation
-
-# Nix Home
 
 This repository contains user configuration deployed using the helpful tool [Home Manager](https://github.com/rycee/home-manager). The organisation of my nix files are based on [Hugo Reeves'](https://hugoreeves.com/posts/2019/nix-home). In order to setup a new home space, simply add a home.nix file similar to this one.
 
@@ -48,7 +46,7 @@ TODO: look into something like git-crypt
 ## Acknowledgements
 
 ### Config
-- The organisation of my nix files are based on [Hugo Reeves'](https://hugoreeves.com/posts/2019/nix-home)
+- The organisation of my nix files are based on [Hugo Reeves' blog post](https://hugoreeves.com/posts/2019/nix-home)
 - Some of the ideas and files for my nix config are based on [Daniel K's - nix-home](https://github.com/danieldk/nix-home)
 - My original dotfiles (pre nix) were based on [Nick Plekhanov's Dotfiles](https://github.com/nicksp/dotfiles)
 
