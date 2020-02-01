@@ -8,6 +8,7 @@
 
   # TODO move xmonad under home manager properly
   home.file.".xmonad".source = ../programs/xmonad;
+  home.file.".xmobarrc".source = ../programs/status-bars/xmobarrc;
 
   programs.alacritty = {
     enable = true;
