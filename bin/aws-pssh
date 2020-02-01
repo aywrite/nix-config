@@ -1,0 +1,17 @@
+#!/bin/bash
+#hosts=$(AWS_PROFILE=$profile yawsi ec2 describe-instances $filter --list-format "{{.PrivateIPAddresses}} : {{.PublicIP}}")
+
+aws-pssh() {
+  profile=$1
+  filter="--tags=role:$2"
+  HOST_STRINGS=$(AWS_PROFILE=$profile yawsi2 ec2 describe-instances $filter --list-format "{{.PrivateIPAddresses}}:{{.PublicIP}}")
+  mapfile -t HOSTS < <(echo $HOST_STRINGS | tr -d "[]" | awk -F ":" '{$1=$1;$2=$2}1":"2' | awk -F ":" '{$1=$1;$2=$2}{if (!$2) print "--host="$1; else print "--host="$2}')
+  set -x
+  parallel-ssh \
+    "${HOSTS[@]}" \
+    --user=awright \
+    --timeout=0 \
+    --inline \
+    "${@:3}"
+}
+aws-pssh $@
