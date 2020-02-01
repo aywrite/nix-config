@@ -7,7 +7,9 @@
   nixpkgs.config.allowUnfree = true;
 
   # TODO move xmonad under home manager properly
-  home.file.".xmonad".source = ../programs/xmonad;
+  # Can't do the whole xmonad directory because it prevents
+  # xmonad for outputing the build and error files etc.
+  home.file.".xmonad/xmonad.hs".source = ../programs/xmonad/xmonad.hs;
   home.file.".xmobarrc".source = ../programs/status-bars/xmobarrc;
 
   programs.alacritty = {
