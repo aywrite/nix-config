@@ -18,6 +18,8 @@
     fzf
     firefox
     cointop
+    kubectl
+    google-cloud-sdk
     (python3.withPackages(ps: [
       ps.python-language-server
       ps.setuptools
