@@ -7,7 +7,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # TODO move xmonad under home manager properly
-  home.file.".xmonad".source = ~/dotfiles/xmonad;
+  home.file.".xmonad".source = ../programs/xmonad;
 
   programs.alacritty = {
     enable = true;
