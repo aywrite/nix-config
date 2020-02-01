@@ -9,7 +9,7 @@
   window = {
     padding.x = 10;
     padding.y = 10;
-    decorations = "buttonless";
+    decorations = "full";
   };
 
   font = {
@@ -22,14 +22,6 @@
   };
 
   cursor.style = "Beam";
-
-  shell = {
-    program = "fish";
-    args = [
-      "-C"
-      "neofetch"
-    ];
-  };
 
   colors = {
     # Default colors
