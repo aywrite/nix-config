@@ -3,6 +3,7 @@
 
 {
   home.packages = with pkgs; [
+    # TODO should this be done on machine level instead?
     # Basic utilities
     htop
     ncdu
@@ -11,13 +12,10 @@
     git
 
   ] ++ lib.optionals pkgs.stdenv.isDarwin [
+    # TODO this doesn't belong here
     # Better userland for macOS
     coreutils
     findutils
     gnugrep
   ];
-
-  programs.home-manager = {
-    enable = true;
-  };
 }
