@@ -1,14 +1,17 @@
 #+TITLE Nix helpful tips and thoughts
+
 * fix nvim after rebuild
 ~:UpdateRemotePlugins~
+
 * Resources
 [[https://www.youtube.com/watch?v=0pqdOnQKMKE][Youtube video on nix for your home system]]
+
 * Creating custom vim packages
+
 To get the sha256 for a vim package from github:
 ~nix-prefetch-url --unpack https://github.com/NixOS/nix/archive/1f795f9f44607cc5bec70d1300150bfefcef2aae.zip~
 
 * Resources
-https://github.com/disassembler/network
 
 * Helpful reddit post
  I use nix-darwin to share much of my config between macOS and NixOS. So I have three subdirectories in my dotfiles repo:

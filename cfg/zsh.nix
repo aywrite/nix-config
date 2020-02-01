@@ -10,6 +10,10 @@ let
   ];
   extraInitExtra = builtins.foldl' (soFar: new: soFar + "\n" + builtins.readFile new) "" extras;
 in {
+  home.file.".zsh-themes" = {
+    source = ./shell/zsh-themes;
+    recursive = true;
+  };
   # .zshenv
   programs.zsh = {
     enable = true;
@@ -31,7 +35,7 @@ in {
     oh-my-zsh = {
       enable = true;
       theme = "andrew";
-      custom = "\$HOME/dotfiles/zsh/themes/";
+      custom = "\$HOME/.zsh-themes/";
       plugins = [
         "git"
       ];
