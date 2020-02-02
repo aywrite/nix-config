@@ -50,19 +50,26 @@ TODO: look into something like git-crypt
 - Some of the ideas and files for my nix config are based on [Daniel K's - nix-home](https://github.com/danieldk/nix-home)
 - My original dotfiles (pre nix) were based on [Nick Plekhanov's Dotfiles](https://github.com/nicksp/dotfiles)
 
+### Window Manager
+- My xmonad & xmobar configuration is mostly based on [Ethan Schoonover's - dotfiles-tilingwm](https://github.com/altercation/dotfiles-tilingwm)
+
 ### Scripts
 - Brightness script based on the [script by Jon Gjengset](https://github.com/jonhoo/configs/blob/master/bins/bin/adjust-brightness)
 
 ### Themes
 
+For a colour pallete I generally stick to [Solarized (Dark)](https://github.com/altercation/solarized).
+
+I use oh-my-zsh to manage my shell theme, which is a mash up of the following:
 - [agnoster - ZSH Theme](https://github.com/agnoster/agnoster-zsh-theme)
+- [Nick Plekhanov's Dotfiles](https://github.com/nicksp/dotfiles)
+- [𝝺 Pure - ZSH Theme](https://github.com/marszall87/lambda-pure)
 
 ### TODO
 The following are repos/articles I want to look at which I might use ideas from:
 
 - https://github.com/disassembler/network
 
-- [𝝺 Pure - ZSH Theme](https://github.com/marszall87/lambda-pure)
 - [Spaceship prompt - ZSH Theme](https://github.com/denysdovhan/spaceship-prompt)
 - [Classy Touch - ZSH Theme](https://github.com/yarisgutierrez/classyTouch_oh-my-zsh)
 - [Typewritten - ZSH Theme](https://github.com/reobin/typewritten)
