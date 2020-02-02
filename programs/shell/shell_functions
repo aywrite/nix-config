@@ -6,15 +6,15 @@ function f() {
 
 # copy a file/dir recursively to ~/backups prompting for overwrites
 backup() {
-  cp -rvi $1 ~/backups/
+  cp -rvi "$1" ~/backups/
 }
 
 # like cd but fuzzy
-fd() {
+cf() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
+  cd "$dir" || return
 }
 
 # save screen capture of selection to captures directory
@@ -25,7 +25,7 @@ scs() {
 # find files matching $1 and replace all $1 with $2 making backups of changed files (.back)
 # forward slashed must be escaped.
 ag-replace() {
-  ag $1 --files-with-matches | xargs -I {} sed -i '.back' -e "s/$1/$2/g" {}
+  ag "$1" --files-with-matches | xargs -I {} sed -i '.back' -e "s/$1/$2/g" {}
 }
 
 # ----- AWS commands ---------
@@ -55,9 +55,9 @@ aws-ssh() {
   private_ip=$(echo $host | awk -F ":" '{print $1}' | awk '{$1=$1;print}' | tr -d "[]")
   public_ip=$(echo $host | awk -F ":" '{print $2}' | awk '{$1=$1;print}' | tr -d "[]")
   if ! [ -z "$public_ip" ]; then
-    ssh awright@$public_ip
+    ssh "awright@$public_ip"
   else
-    ssh awright@$private_ip
+    ssh "awright@$private_ip"
   fi
 }
 

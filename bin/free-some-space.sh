@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Free some space
 # by Andrew Wright
 # https://github.com/aywrite
@@ -7,6 +9,9 @@
 # space.
 #
 # TODO: Make it work on multiple OS / if program is not installed
+set -o errexit
+set -o nounset
+set -o pipefail
 
 # debian packages
 sudo apt autoremove

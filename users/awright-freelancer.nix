@@ -23,6 +23,7 @@
     # Development
     tmux
     jq
+    shellcheck
     #git-crypt
 
     # Files

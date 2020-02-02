@@ -17,9 +17,9 @@
     #fd
 
     # Development
-    neovim
     tmux
     jq
+    shellcheck
     #git-crypt
 
     # Files
