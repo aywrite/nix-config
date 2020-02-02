@@ -9,32 +9,9 @@
   ];
 
   home.packages = with pkgs; [
-    # Rust CLI Tools
-    exa
-    #bat
-    #tokei
-    #xsv
-    #fd
-
-    # Development
-    tmux
-    jq
-    shellcheck
-    #git-crypt
-
-    # Files
-    #zstd
-    #restic
-
-    # Media
-    #youtube-dl
-    #imagemagick
-
-    # Overview
-    htop
-    #wtf
-    #lazygit
-    #neofetch
+    # other
+    firefox
+    cointop
   ];
 
   programs.git = {
@@ -43,5 +20,12 @@
     userName = "awright";
     signing.key = "0x46BAAEE2AFADB938";
     signing.signByDefault = true;
+    extraConfig = {
+      url = {
+        "git@github.com:" = {
+          insteadOf = "https://github.com/";
+        };
+      };
+    };
   };
 }

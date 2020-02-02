@@ -3,13 +3,30 @@
 
 {
   home.packages = with pkgs; [
-    # TODO should this be done on machine level instead?
+    # TODO set up restic
+
     # Basic utilities
-    htop
-    ncdu
     ripgrep
     unzip
     git
+    fzf
+
+    # Rust CLI Tools
+    exa
+    tokei
+    fd
+
+    # Development
+    tmux
+    jq
+    shellcheck
+    git-crypt
+
+    # system tools
+    htop
+    ncdu
+    restic
+    neofetch
 
   ] ++ lib.optionals pkgs.stdenv.isDarwin [
     # TODO this doesn't belong here

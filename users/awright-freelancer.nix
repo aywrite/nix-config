@@ -9,42 +9,14 @@
   ];
 
   home.packages = with pkgs; [
-    # TODO check the extra tools out
-    # TODO re-organise the tools
     # TODO copy these changes to awright personal
 
-    # Rust CLI Tools
-    exa
-    #bat
-    #tokei
-    #xsv
-    #fd
-
-    # Development
-    tmux
-    jq
-    shellcheck
-    #git-crypt
-
-    # Files
-    #zstd
-    #restic
-
-    # Media
-    #youtube-dl
-    #imagemagick
-
-    # Overview
-    #wtf
-    #lazygit
-    #neofetch
-
-    # other
-    fzf
-    firefox
-    cointop
+    # dev ops
     kubectl
     google-cloud-sdk
+
+    # other
+    firefox
 
     # python 3 development environment
     (python3.withPackages(ps: [
