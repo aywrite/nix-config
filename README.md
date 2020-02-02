@@ -4,7 +4,7 @@ I use [nix](https://nixos.org/nix/) and [home manager](https://github.com/rycee/
 
 I use `zsh` as my main shell, customized using `oh-my-zsh`.
 
-![Terminal.app](https://raw.github.com/nicksp/dotfiles/master/iterm/nick-terminal.png)
+![Terminal.app](https://raw.github.com/aywrite/nix-home/master/terminal.png)
 
 ## Installation
 
@@ -57,10 +57,9 @@ If the `~/.zsh.local` file exists, it will be automatically sourced. This allows
 
 For a colour pallete I generally stick to [Solarized (Dark)](https://github.com/altercation/solarized).
 
-I use oh-my-zsh to manage my shell theme, which is a mash up of the following:
-- [agnoster - ZSH Theme](https://github.com/agnoster/agnoster-zsh-theme)
-- [Nick Plekhanov's Dotfiles](https://github.com/nicksp/dotfiles)
-- [𝝺 Pure - ZSH Theme](https://github.com/marszall87/lambda-pure)
+I use oh-my-zsh to manage my shell theme, the current theme I am using is a slightly modified version of [𝝺 Pure](https://github.com/marszall87/lambda-pure) with the formating of git status from  [Spaceship Prompt](https://github.com/denysdovhan/spaceship-prompt).
+
+My old theme (`andrew`) was based on the [agnoster](https://github.com/agnoster/agnoster-zsh-theme) which is the deault with oh-my-zsh.
 
 ## TODO
 
@@ -81,6 +80,5 @@ The following are repos/articles I want to look at which I might use ideas from:
 
 - https://github.com/disassembler/network
 
-- [Spaceship prompt - ZSH Theme](https://github.com/denysdovhan/spaceship-prompt)
 - [Classy Touch - ZSH Theme](https://github.com/yarisgutierrez/classyTouch_oh-my-zsh)
 - [Typewritten - ZSH Theme](https://github.com/reobin/typewritten)
