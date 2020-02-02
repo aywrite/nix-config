@@ -4,7 +4,6 @@ I use [nix](https://nixos.org/nix/) and [home manager](https://github.com/rycee/
 
 I use `zsh` as my main shell, customized using `oh-my-zsh`.
 
-TODO update screenshot
 ![Terminal.app](https://raw.github.com/nicksp/dotfiles/master/iterm/nick-terminal.png)
 
 ## Installation
@@ -39,9 +38,7 @@ The dotfiles can be easily extended to suit additional local requirements by usi
 
 #### `~/.zsh.local`
 
-If the `~/.zsh.local` file exists, it will be automatically sourced. This allows the use of environment variables to store secrets without checking them in.
-
-TODO: look into something like git-crypt
+If the `~/.zsh.local` file exists, it will be automatically sourced. This allows the use of environment variables to store secrets without checking them in. In the future I might use something like git-crypt to check in encrypted secrets instead.
 
 ## Acknowledgements
 
@@ -65,7 +62,21 @@ I use oh-my-zsh to manage my shell theme, which is a mash up of the following:
 - [Nick Plekhanov's Dotfiles](https://github.com/nicksp/dotfiles)
 - [𝝺 Pure - ZSH Theme](https://github.com/marszall87/lambda-pure)
 
-### TODO
+## TODO
+
+- Configure restic
+- Fix up zsh theme and update README screenshot
+- Manage urxvt in home manager
+- Manage xsession/xinit etc files
+- Get alacritty working
+- Write an install script with template/prompts to generate home.nix
+- Clean up/migrate nix.org file
+- Update details on local configuration/overrides & secrets
+- Figure out how best to manage root user
+- Deprecate dotfiles repo
+- Make sure binary scripts get symlinked into PATH somewhere
+
+### Themes
 The following are repos/articles I want to look at which I might use ideas from:
 
 - https://github.com/disassembler/network
@@ -73,4 +84,3 @@ The following are repos/articles I want to look at which I might use ideas from:
 - [Spaceship prompt - ZSH Theme](https://github.com/denysdovhan/spaceship-prompt)
 - [Classy Touch - ZSH Theme](https://github.com/yarisgutierrez/classyTouch_oh-my-zsh)
 - [Typewritten - ZSH Theme](https://github.com/reobin/typewritten)
-
