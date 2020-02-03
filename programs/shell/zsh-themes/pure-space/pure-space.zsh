@@ -1,3 +1,4 @@
+# Based on:
 # λ Pure
 # by Michał Nykiel
 # https://github.com/marszall87/lambda-pure
@@ -5,7 +6,6 @@
 #
 # based on Pure by Sindre Sorhus
 # https://github.com/sindresorhus/pure
-
 # For my own and others sanity
 # git:
 # %b => current branch
@@ -256,103 +256,11 @@ prompt_pure_precmd() {
 	# get vcs info
 	vcs_info
 
-	# preform async git dirty check and fetch
-	prompt_pure_async_tasks
-
 	# print the preprompt
 	prompt_pure_preprompt_render "precmd"
 
 	# remove the prompt_pure_cmd_timestamp, indicating that precmd has completed
 	unset prompt_pure_cmd_timestamp
-}
-
-# fastest possible way to check if repo is dirty
-prompt_pure_async_git_dirty() {
-	local untracked_dirty=$1; shift
-
-	# use cd -q to avoid side effects of changing directory, e.g. chpwd hooks
-	builtin cd -q "$*"
-
-	if [[ "$untracked_dirty" == "0" ]]; then
-		command git diff --no-ext-diff --quiet --exit-code
-	else
-		test -z "$(command git status --porcelain --ignore-submodules -unormal)"
-	fi
-
-	(( $? )) && echo " %F{red}${PURE_GIT_DIRTY:-×}%f"
-}
-
-prompt_pure_async_git_fetch() {
-	# use cd -q to avoid side effects of changing directory, e.g. chpwd hooks
-	builtin cd -q "$*"
-
-	# set GIT_TERMINAL_PROMPT=0 to disable auth prompting for git fetch (git 2.3+)
-	GIT_TERMINAL_PROMPT=0 command git -c gc.auto=0 fetch
-}
-
-prompt_pure_async_tasks() {
-	# initialize async worker
-	((!${prompt_pure_async_init:-0})) && {
-		async_start_worker "prompt_pure" -u -n
-		async_register_callback "prompt_pure" prompt_pure_async_callback
-		prompt_pure_async_init=1
-	}
-
-	# store working_tree without the "x" prefix
-	local working_tree="${vcs_info_msg_1_#x}"
-
-	# check if the working tree changed (prompt_pure_current_working_tree is prefixed by "x")
-	if [[ ${prompt_pure_current_working_tree#x} != $working_tree ]]; then
-		# stop any running async jobs
-		async_flush_jobs "prompt_pure"
-
-		# reset git preprompt variables, switching working tree
-		unset prompt_pure_git_dirty
-		unset prompt_pure_git_last_dirty_check_timestamp
-
-		# set the new working tree and prefix with "x" to prevent the creation of a named path by AUTO_NAME_DIRS
-		prompt_pure_current_working_tree="x${working_tree}"
-	fi
-
-	# only perform tasks inside git working tree
-	[[ -n $working_tree ]] || return
-
-	# do not perform git fetch if it is disabled or working_tree == HOME
-	if (( ${PURE_GIT_PULL:-1} )) && [[ $working_tree != $HOME ]]; then
-		# tell worker to do a git fetch
-		async_job "prompt_pure" prompt_pure_async_git_fetch "${working_tree}"
-	fi
-
-	# if dirty checking is sufficiently fast, tell worker to check it again, or wait for timeout
-	integer time_since_last_dirty_check=$(( EPOCHSECONDS - ${prompt_pure_git_last_dirty_check_timestamp:-0} ))
-	if (( time_since_last_dirty_check > ${PURE_GIT_DELAY_DIRTY_CHECK:-1800} )); then
-		unset prompt_pure_git_last_dirty_check_timestamp
-		# check check if there is anything to pull
-		async_job "prompt_pure" prompt_pure_async_git_dirty "${PURE_GIT_UNTRACKED_DIRTY:-1}" "${working_tree}"
-	fi
-
-}
-
-prompt_pure_async_callback() {
-	local job=$1
-        if [[ $# == 5 ]]; then
-            local output=$3
-            local exec_time=$4
-        else
-            local output=
-            local exec_tim=$3
-        fi
-
-	case "${job}" in
-		prompt_pure_async_git_dirty)
-			prompt_pure_git_dirty=$output
-			prompt_pure_preprompt_render
-			;;
-		prompt_pure_async_git_fetch)
-			prompt_pure_check_git_arrows
-			prompt_pure_preprompt_render
-			;;
-	esac
 }
 
 prompt_pure_setup() {
