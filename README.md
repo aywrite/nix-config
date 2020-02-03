@@ -4,7 +4,7 @@ I use [nix](https://nixos.org/nix/) and [home manager](https://github.com/rycee/
 
 I use `zsh` as my main shell, customized using `oh-my-zsh`.
 
-![Terminal.app](https://raw.github.com/aywrite/nix-home/master/terminal.png)
+![Terminal.app](https://raw.github.com/aywrite/nix-config/master/terminal.png)
 
 ## Installation
 
