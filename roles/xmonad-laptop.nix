@@ -3,6 +3,7 @@
 {
   imports = [
     ../programs/zsh.nix
+    ../programs/rofi.nix
   ];
   nixpkgs.config.allowUnfree = true;
 
