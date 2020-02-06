@@ -1,1 +1,0 @@
-./lambda-pure/lambda-pure.zsh

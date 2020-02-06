@@ -4,7 +4,7 @@
 # https://github.com/marszall87/lambda-pure
 # MIT License
 #
-# based on Pure by Sindre Sorhus
+# Pure by Sindre Sorhus
 # https://github.com/sindresorhus/pure
 # For my own and others sanity
 # git:
@@ -128,11 +128,7 @@ prompt_pure_set_title() {
 }
 
 prompt_pure_preexec() {
-	# attempt to detect and prevent prompt_pure_async_git_fetch from interfering with user initiated git or hub fetch
-	[[ $2 =~ (git|hub)\ .*(pull|fetch) ]] && async_flush_jobs 'prompt_pure'
-
 	prompt_pure_cmd_timestamp=$EPOCHSECONDS
-
 	# shows the current dir and executed command in the title while a process is active
 	prompt_pure_set_title 'ignore-escape' "$PWD:t: $2"
 }

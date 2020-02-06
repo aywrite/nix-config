@@ -1,6 +1,0 @@
-[submodule "programs/shell/zsh-themes/spaceship-prompt"]
-	path = programs/shell/zsh-themes/spaceship-prompt
-	url = https://github.com/denysdovhan/spaceship-prompt
-[submodule "programs/shell/zsh-themes/lambda-pure"]
-	path = programs/shell/zsh-themes/lambda-pure
-	url = https://github.com/marszall87/lambda-pure
