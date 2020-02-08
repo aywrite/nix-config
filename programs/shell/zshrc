@@ -1,4 +1,6 @@
+source $HOME/.nix-profile/etc/profile.d/nix.sh
 # Directories to be prepended to $PATH
+
 declare -a dirs_to_prepend
 dirs_to_prepend=(
   "/usr/local/bin"
@@ -21,13 +23,7 @@ dirs_to_prepend=(
   "$HOME/tools/arcanist/bin"
   "$HOME/tools/"
   "/usr/local/opt/bison/bin"
-  "$HOME/.rbenv/bin"
 )
-
-# These are slow, might be useful later though
-#"$(brew --prefix ruby)/bin"
-#"$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
-#"$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
 
 for dir in ${(k)dirs_to_prepend[@]}
 do
@@ -47,10 +43,6 @@ export PATH
 #unset file;
 # Source local extra (private) settings specific to machine if it exists
 [ -f ~/.zsh.local ] && source ~/.zsh.local
-# load virtualenvwrapper script
-source /usr/local/bin/virtualenvwrapper.sh
-# ruby env manager
-eval "$(rbenv init -)"
 # ssh agent
 eval `ssh-agent -s` > /dev/null
 export NVM_DIR="$HOME/.nvm"

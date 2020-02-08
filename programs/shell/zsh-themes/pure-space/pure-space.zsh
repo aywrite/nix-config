@@ -272,7 +272,6 @@ prompt_pure_setup() {
 
 	autoload -Uz add-zsh-hook
 	autoload -Uz vcs_info
-	autoload -Uz async && async
 
 	add-zsh-hook precmd prompt_pure_precmd
 	add-zsh-hook preexec prompt_pure_preexec
