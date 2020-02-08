@@ -64,16 +64,23 @@ My old theme (`andrew`) was based on the [agnoster](https://github.com/agnoster/
 ## TODO
 
 - Configure restic
-- Fix up zsh theme and update README screenshot
-- Manage urxvt in home manager
-- Manage xsession/xinit etc files
 - Get alacritty working
 - Write an install script with template/prompts to generate home.nix
 - Clean up/migrate nix.org file
 - Update details on local configuration/overrides & secrets
 - Figure out how best to manage root user
-- Deprecate dotfiles repo
 - Make sure binary scripts get symlinked into PATH somewhere
+
+### Apps to add
+
+- spotify
+- 1password
+- iterm (mac)
+- slack
+- rvm
+- nvm
+- virtualenv wrapper
+- spacemacs
 
 ### Themes
 The following are repos/articles I want to look at which I might use ideas from:
