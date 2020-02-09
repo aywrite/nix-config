@@ -7,18 +7,24 @@
   ];
   nixpkgs.config.allowUnfree = true;
 
+  home.packages = with pkgs; [
+    xmobar
+    rofi
+    polybar
+
+    # fonts
+    fira-code
+    fira-code-symbols
+    source-code-pro
+  ];
+  # TODO move this to user?
+  fonts.fontconfig.enable = true;
+
   home.file.".xinitrc".source = ../programs/xorg/xinitrc;
   home.file.".profile".source = ../programs/xorg/xprofile;
   xresources.extraConfig = builtins.readFile ../programs/xorg/Xresources;
   xsession.enable = true;
 
-  # TODO move this to user?
-  fonts.fontconfig.enable = true;
-  home.packages = with pkgs; [
-    fira-code
-    fira-code-symbols
-    source-code-pro
-  ];
   # TODO move this to user?
   programs.urxvt = {
     enable = true;
@@ -39,6 +45,12 @@
   xsession.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
+  };
+
+  services.polybar = {
+    enable = true;
+    script = builtins.readFile ../programs/status-bars/launch-polybar.sh;
+    config = ../programs/status-bars/polybar-config;
   };
 
   # Environment
