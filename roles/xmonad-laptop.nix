@@ -13,6 +13,13 @@
   xsession.enable = true;
 
   # TODO move this to user?
+  fonts.fontconfig.enable = true;
+  home.packages = with pkgs; [
+    fira-code
+    fira-code-symbols
+    source-code-pro
+  ];
+  # TODO move this to user?
   programs.urxvt = {
     enable = true;
   };
