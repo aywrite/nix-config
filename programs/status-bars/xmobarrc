@@ -28,11 +28,11 @@ Config {  font           = "xft:xos4 Terminus:pixelsize=18:antialias=true:hintin
 
                                              , "--" -- battery specific options
                                                        -- discharging status
-                                                       , "-o"	, "<left>% (<timeleft>)⚠"
+                                                       , "-o"	, "<left>% (<timeleft>)!"
                                                        -- AC "on" status
-                                                       , "-O"	, "<left>% <fc=#dAA520>↯</fc>"
+                                                       , "-O"	, "<left>% <fc=#dAA520>o</fc>"
                                                        -- charged status
-                                                       , "-i"	, "<left>% <fc=#006000>↯</fc>"
+                                                       , "-i"	, "<left>% <fc=#006000>o</fc>"
                                              ] 50
 
                         , Run Com "uname" ["-s","-r"] "" 36000
