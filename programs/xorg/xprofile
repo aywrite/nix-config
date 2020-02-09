@@ -1,3 +1,4 @@
+source $HOME/.nix-profile/etc/profile.d/nix.sh
 xrdb -DSOLARIZED_DARK -load ~/.Xresources
 export TERMINAL=urxvt
 
