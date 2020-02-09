@@ -16,9 +16,9 @@
     size = 12.0;
     use_thin_strokes = true;
 
-    normal.family = "FuraCode Nerd Font";
-    bold.family = "FuraCode Nerd Font";
-    italic.family = "FuraCode Nerd Font";
+    normal.family = "FiraCode";
+    bold.family = "FiraCode";
+    italic.family = "FiraCode";
   };
 
   cursor.style = "Beam";
@@ -26,32 +26,32 @@
   colors = {
     # Default colors
     primary = {
-      background = "0x1b182c";
-      foreground = "0xcbe3e7";
+      background = "0x002b36";
+      foreground = "0x839496";
     };
 
     # Normal colors
     normal = {
-      black =   "0x100e23";
-      red =     "0xff8080";
-      green =   "0x95ffa4";
-      yellow =  "0xffe9aa";
-      blue =    "0x91ddff";
-      magenta = "0xc991e1";
-      cyan =    "0xaaffe4";
-      white =   "0xcbe3e7";
+      black=   "0x073642";
+      red=     "0xdc322f";
+      green=   "0x859900";
+      yellow=  "0xb58900";
+      blue=    "0x268bd2";
+      magenta= "0xd33682";
+      cyan=    "0x2aa198";
+      white=   "0xeee8d5";
     };
 
     # Bright colors
     bright = {
-      black =   "0x565575";
-      red =     "0xff5458";
-      green =   "0x62d196";
-      yellow =  "0xffb378";
-      blue =    "0x65b2ff";
-      magenta = "0x906cff";
-      cyan =    "0x63f2f1";
-      white = "0xa6b3cc";
+      black=   "0x002b36";
+      red=     "0xcb4b16";
+      green=   "0x586e75";
+      yellow=  "0x657b83";
+      blue=    "0x839496";
+      magenta= "0x6c71c4";
+      cyan=    "0x93a1a1";
+      white=   "0xfdf6e3";
     };
   };
 }
