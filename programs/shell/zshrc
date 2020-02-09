@@ -35,16 +35,18 @@ done
 
 unset dirs_to_prepend
 export PATH
+
 # --- TODO nixify everything below here ---
-# Load the shell dotfiles
-#for file in $HOME/.{shell_exports,shell_aliases,shell_functions,shell_config}; do
-#    [ -r "$file" ] && [ -f "$file" ] && source "$file";
-#done;
-#unset file;
 # Source local extra (private) settings specific to machine if it exists
 [ -f ~/.zsh.local ] && source ~/.zsh.local
 # ssh agent
-eval `ssh-agent -s` > /dev/null
+# Configure gpg agent for ssh
+# https://github.com/drduh/YubiKey-Guide#ssh
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # This loads nvm bash_completion
