@@ -76,7 +76,7 @@ myConfig p = def
 myAltTerminal       = "gnome-terminal"
 myBrowser           = "google-chrome"
 myPersonalBrowser   = myBrowser ++ " --profile-directory=Default"
-myTerminal          = "urxvt"
+myTerminal          = "/bin/alacritty || urxvt"
 myWorkBrowser       = myBrowser ++ " --profile-directory='Profile 1'"
 myWorkChat          = myWorkBrowser ++ " --app=https://chat.tools.flnltd.com/home"
 myWorkMonitoring    = myWorkBrowser ++ " --new-window https://grafana.fln.flnltd.com/"
