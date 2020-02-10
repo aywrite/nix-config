@@ -36,6 +36,11 @@
     gnugrep
   ];
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   # default git ignores
   programs.git = {
     ignores = [
