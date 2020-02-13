@@ -50,3 +50,8 @@ alias php-cs-fixer='docker run -v $PWD:/project --rm herloct/php-cs-fixer'
 
 # xclip clipboard
 alias xcc='xclip -selection clipboard'
+
+# firejail
+alias ff-tmp="firejail --private-tmp firefox -no-remote"
+alias ff-personal="firejail --ignore=private-dev --private=$HOME/.firejail/personal firefox -no-remote"
+alias ff-work="firejail --ignore=private-dev --private=$HOME/.firejail/work firefox -no-remote"
