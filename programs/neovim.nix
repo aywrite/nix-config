@@ -19,7 +19,7 @@ in
         coc-nvim
         fzfWrapper
         vim-rooter
-	    vim-colors-solarized
+        vim-colors-solarized
         vim-tmux-navigator
         supertab
         #async
@@ -30,15 +30,13 @@ in
         vim-airline-themes
         ale
         # language specific plugins
-        #black
         #vim-prometheus
         vim-toml
-        #vim-pug # jade syntax highlighting
         vim-go
         vim-terraform
         #vim-haskell-indent
         #vim-graphql
-        #apiblueprint
+        vimwiki
         typescript-vim
         vim-ledger
         Jenkinsfile-vim-syntax
@@ -48,7 +46,7 @@ in
         arcanist
         thrift
         vim-beancount
-	    vim-nix
+        vim-nix
         LanguageClient-neovim
     ];
   };
