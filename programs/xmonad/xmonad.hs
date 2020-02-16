@@ -246,13 +246,16 @@ myModMask           = mod4Mask
 
 myAdditionalKeys = [
       ("M-S-p", spawn myLauncher)
-    , ("M-S-z", spawn myAltTerminal)
+    , ("M-<Return>", spawn myTerminal)
+    , ("M-S-<Return>", spawn myAltTerminal)
     , ("M-S-s", spawn myStartupScript)
     , ("M-C-l", spawn myLockScreen)
     , ("M-S-t", namedScratchpadAction scratchpads "chatwork")
     , ("M-S-i", namedScratchpadAction scratchpads "tasks")
     , ("M-S-e", namedScratchpadAction scratchpads "emacs")
-    , ("M-S-q", confirmPrompt hotPromptTheme "Quit XMonad" $ io (exitWith ExitSuccess))
+    , ("M-c", spawn "xmonad --recompile && xmonad --restart")
+    , ("M-S-c", confirmPrompt hotPromptTheme "Quit XMonad" $ io (exitWith ExitSuccess))
+    , ("M-S-q", kill)
     -- navigation
     , ("M-h", windowGo L False)
     , ("M-j", windowGo D False)
