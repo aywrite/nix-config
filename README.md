@@ -49,6 +49,7 @@ If the `~/.zsh.local` file exists, it will be automatically sourced. This allows
 
 ### Window Manager
 - My xmonad & xmobar configuration is mostly based on [Ethan Schoonover's - dotfiles-tilingwm](https://github.com/altercation/dotfiles-tilingwm)
+- Sway configuration takes some inspiration from - https://github.com/Robinhuett/dotfiles/blob/master/.config/sway/config
 
 ### Scripts
 - Brightness script based on the [script by Jon Gjengset](https://github.com/jonhoo/configs/blob/master/bins/bin/adjust-brightness)
@@ -76,7 +77,6 @@ My old theme (`andrew`) was based on the [agnoster](https://github.com/agnoster/
 - spotify
 - 1password
 - iterm (mac)
-- slack
 - rvm
 - nvm
 - virtualenv wrapper
