@@ -114,6 +114,11 @@ window#waybar.chromium {
     }
 }
 
+#battery.warning:not(.charging) {
+    background-color: #b58900;
+    color: #ffffff;
+}
+
 #battery.critical:not(.charging) {
     background-color: #dc322f;
     color: #ffffff;
