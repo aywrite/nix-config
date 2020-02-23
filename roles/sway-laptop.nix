@@ -11,6 +11,7 @@
     fira-code
     fira-code-symbols
     source-code-pro
+    font-awesome # required for waybar
   ];
   # TODO move this to user?
   fonts.fontconfig.enable = true;
