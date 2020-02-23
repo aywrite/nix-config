@@ -34,7 +34,6 @@
   # Environment
   home.sessionVariables = {
     EDITOR = "nvim";
-    BROWSER = "ff-tmp";
     TERMINAL = "alacritty";
     MOZ_ENABLE_WAYLAND = "true";
   };

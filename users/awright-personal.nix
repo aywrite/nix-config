@@ -14,6 +14,10 @@
     cointop
   ];
 
+  home.sessionVariables = {
+    BROWSER = "ff-personal";
+  };
+
   programs.git = {
     enable = true;
     userEmail = "andrew.wright502@gmail.com";

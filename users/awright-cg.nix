@@ -14,6 +14,10 @@
     google-cloud-sdk
   ];
 
+  home.sessionVariables = {
+    BROWSER = "ff-work";
+  };
+
   programs.git = {
     enable = true;
     userEmail = "anderw.w@covergenius.com";
