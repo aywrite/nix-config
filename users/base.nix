@@ -24,6 +24,7 @@
 
     # system tools
     htop
+    ytop
     ncdu
     restic
     neofetch
