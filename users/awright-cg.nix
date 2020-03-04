@@ -10,8 +10,11 @@
 
   home.packages = with pkgs; [
     # dev ops
-    kubectl
+    argocd
     google-cloud-sdk
+    kubectl
+    kustomize
+    minikube
   ];
 
   home.sessionVariables = {
