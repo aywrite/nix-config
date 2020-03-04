@@ -3,6 +3,7 @@
 {
   imports = [
     ../programs/zsh.nix
+    ../programs/rust.nix
   ];
   nixpkgs.config.allowUnfree = true;
 
