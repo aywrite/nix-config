@@ -151,6 +151,8 @@ let g:solarized_termcolors=256
 
 " subtle highlight for matching brackets
 highlight MatchParen cterm=bold ctermbg=none ctermfg=blue
+" Ensure spell check results are visible
+highlight SpellBad cterm=underline
 
 " Airlines theme (vim-airline)
 let g:airline_theme='solarized'
