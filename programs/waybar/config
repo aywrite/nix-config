@@ -104,6 +104,7 @@
         },
         "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
+        "format-critical": "WARNING LOW BATTERY {capacity}% {icon}",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
