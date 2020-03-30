@@ -19,6 +19,7 @@ in
         coc-nvim
         fzfWrapper
         vim-rooter
+        vim-test
         vim-colors-solarized
         vim-tmux-navigator
         supertab
