@@ -12,6 +12,7 @@
     # dev ops
     argocd
     google-cloud-sdk
+    kubernetes-helm
     kubectl
     kustomize
     minikube
