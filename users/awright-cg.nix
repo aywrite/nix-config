@@ -30,8 +30,8 @@
 
   programs.git = {
     enable = true;
-    userEmail = "anderw.w@covergenius.com";
-    userName = "awright";
+    userEmail = "andrew.w@covergenius.com";
+    userName = "Andrew Wright";
     signing.key = "0x46BAAEE2AFADB938";
     signing.signByDefault = true;
     extraConfig = {
