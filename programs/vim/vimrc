@@ -3,7 +3,7 @@ set shell=/bin/sh
 let mapleader = "\<Space>"
 
 " --- coc stuff ---
-let g:coc_global_extensions = ['coc-eslint', 'coc-rls', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-phpls']
+let g:coc_global_extensions = ['coc-eslint', 'coc-rls', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-phpls', 'coc-go']
 
 " Better display for messages
 set cmdheight=2
@@ -267,11 +267,10 @@ let g:racer_cmd = "/Users/andrewwright/.cargo/bin/racer"
 autocmd BufNewFile,BufRead *.go.tmpl set filetype=go
 
 autocmd FileType go nmap <leader>b <Plug>(go-build)
-autocmd FileType go nmap <leader>r <Plug>(go-run)
-autocmd FileType go nmap <leader>t <Plug>(go-test)
-autocmd FileType go nmap <leader>g <Plug>(go-def)
+autocmd FileType go nmap <leader>ta <Plug>(go-test)
+"autocmd FileType go nmap <leader>gd <Plug>(go-def)
 autocmd FileType go nmap <leader>l <Plug>(go-metalinter)
-autocmd FileType go nmap <leader>d <Plug>(go-doc)
+autocmd FileType go nmap <leader>sd <Plug>(go-doc)
 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1

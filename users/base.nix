@@ -29,6 +29,9 @@
     restic
     neofetch
 
+    # go
+    go
+    golangci-lint
     # Need this for coc vim plugin
     nodejs
     # python 3 development environment
