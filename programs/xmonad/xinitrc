@@ -4,4 +4,4 @@
 [ -f ~/.xprofile ] && source ~/.xprofile
 
 # start window manager
-exec xmonad
+exec startx
