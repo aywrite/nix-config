@@ -20,7 +20,7 @@
   # TODO move this to user?
   fonts.fontconfig.enable = true;
 
-  home.file.".xinitrc".source = ../programs/xorg/xinitrc;
+  home.file.".xinitrc".source = ../programs/xmonad/xinitrc;
   home.file.".profile".source = ../programs/xorg/xprofile;
   xresources.extraConfig = builtins.readFile ../programs/xorg/Xresources;
   xsession.enable = true;

@@ -121,11 +121,11 @@ myWideFont   = "-*-terminus-medium-*-*-*-*-180-*-*-*-*-*-*"
 myFont       = "-*-terminus-medium-*-*-*-*-160-*-*-*-*-*-*"
 
 -- Size/Layout
-gap         = 10
-topbar      = 10
-border      = 0
-prompt      = 25
-status      = 20
+gap                = 10
+topbar             = 10
+myBorderWidth      = 0
+prompt             = 25
+status             = 20
 
 -- Themes
 --
