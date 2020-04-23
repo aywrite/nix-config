@@ -16,6 +16,11 @@
     fira-code-symbols
     source-code-pro
     font-awesome # required for waybar
+
+    # wayland programs
+    mako
+    slurp
+    grim
   ];
   # TODO move this to user?
   fonts.fontconfig.enable = true;

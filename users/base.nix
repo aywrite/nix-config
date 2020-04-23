@@ -3,14 +3,23 @@
 
 {
   home.packages = with pkgs; [
-    # TODO set up restic
-
     # Basic utilities
     ripgrep
     unzip
     git
     fzf
+
+    # Network utilities
     mtr
+    netcat
+    nettools
+
+    # system tools
+    htop
+    ytop
+    ncdu
+    restic
+    neofetch
 
     # Rust CLI Tools
     exa
@@ -23,16 +32,11 @@
     shellcheck
     git-crypt
 
-    # system tools
-    htop
-    ytop
-    ncdu
-    restic
-    neofetch
-
+    # Languages
     # go
     go
     golangci-lint
+
     # Need this for coc vim plugin
     nodejs
     # python 3 development environment
