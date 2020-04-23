@@ -16,6 +16,7 @@
     kubectl
     kustomize
     minikube
+    aws-iam-authenticator
   ];
 
   home.sessionVariables = {

@@ -5,6 +5,9 @@
     ../programs/zsh.nix
     ../programs/rust.nix
   ];
+
+  # TODO where to put this
+  targets.genericLinux.enable = true;
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
@@ -21,7 +24,6 @@
   xdg.configFile."waybar".source = ../programs/waybar;
   xdg.configFile."mako".source = ../programs/mako;
 
-  home.file.".xinitrc".source = ../programs/xorg/xinitrc;
   home.file.".profile".source = ../programs/xorg/xprofile;
   xresources.extraConfig = builtins.readFile ../programs/xorg/Xresources;
 
