@@ -10,6 +10,7 @@
     unzip
     git
     fzf
+    mtr
 
     # Rust CLI Tools
     exa
