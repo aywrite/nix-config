@@ -8,23 +8,31 @@
 # Really dumb script to just automate some of the common ways to free up some
 # space.
 #
-# TODO: Make it work on multiple OS / if program is not installed
 set -o errexit
 set -o nounset
 set -o pipefail
 
 # debian packages
-sudo apt autoremove
-sudo apt-get autoclean
+if command -v apt; then
+  sudo apt autoremove
+  sudo apt-get autoclean
+fi
 
 # docker
-docker system prune
+if command -v docker; then
+  docker system prune
+fi
 
-nix-collect-garbage
-nix optimise-store
+if command -v nix; then
+  nix-collect-garbage
+  nix optimise-store
+fi
 
 # yarn
-yarn cache clean
+if command -v yarn; then
+  yarn cache clean
+fi
 
 # Report usage
 df -h /
+df -h ~/
