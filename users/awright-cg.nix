@@ -11,12 +11,12 @@
   home.packages = with pkgs; [
     # dev ops
     argocd
+    aws-iam-authenticator
     google-cloud-sdk
-    kubernetes-helm
     kubectl
+    kubernetes-helm
     kustomize
     minikube
-    aws-iam-authenticator
   ];
 
   home.sessionVariables = {

@@ -44,7 +44,7 @@ If the `~/.zsh.local` file exists, it will be automatically sourced. This allows
 
 ### Config
 - The organisation of my nix files are based on [Hugo Reeves' blog post](https://hugoreeves.com/posts/2019/nix-home)
-- Some of the ideas and files for my nix config are based on [Daniel K's - nix-home](https://github.com/danieldk/nix-home)
+- Some of the ideas and files for my nix configuration are based on [Daniel K's - nix-home](https://github.com/danieldk/nix-home)
 - My original dotfiles (pre nix) were based on [Nick Plekhanov's Dotfiles](https://github.com/nicksp/dotfiles)
 
 ### Window Manager
@@ -56,21 +56,19 @@ If the `~/.zsh.local` file exists, it will be automatically sourced. This allows
 
 ### Themes
 
-For a colour pallete I generally stick to [Solarized (Dark)](https://github.com/altercation/solarized).
+For a colour palette I generally stick to [Solarized (Dark)](https://github.com/altercation/solarized).
 
 I use oh-my-zsh to manage my shell theme, the current theme I am using is a slightly modified version of [𝝺 Pure](https://github.com/marszall87/lambda-pure) with the formating of git status from  [Spaceship Prompt](https://github.com/denysdovhan/spaceship-prompt).
 
-My old theme (`andrew`) was based on the [agnoster](https://github.com/agnoster/agnoster-zsh-theme) which is the deault with oh-my-zsh.
+My old theme (`andrew`) was based on the [agnoster](https://github.com/agnoster/agnoster-zsh-theme) which is the default with oh-my-zsh.
 
 ## TODO
 
 - Configure restic
-- Get alacritty working
 - Write an install script with template/prompts to generate home.nix
-- Clean up/migrate nix.org file
 - Update details on local configuration/overrides & secrets
 - Figure out how best to manage root user
-- Make sure binary scripts get symlinked into PATH somewhere
+- Make sure binary scripts get sym-linked into PATH somewhere
 
 ### Apps to add
 
