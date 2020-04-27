@@ -31,6 +31,7 @@
     jq
     shellcheck
     git-crypt
+    direnv
 
     # Languages
     # go
