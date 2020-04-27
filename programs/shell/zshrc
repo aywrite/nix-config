@@ -3,6 +3,9 @@ source $HOME/.nix-profile/etc/profile.d/nix.sh
 # Fixes a bug where programs opening file picker would crash
 export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/local/share:/usr/share
 
+# support for nix dir-env
+eval "$(direnv hook zsh)"
+
 # Directories to be prepended to $PATH
 declare -a dirs_to_prepend
 dirs_to_prepend=(
