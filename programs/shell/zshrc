@@ -1,6 +1,9 @@
 source $HOME/.nix-profile/etc/profile.d/nix.sh
-# Directories to be prepended to $PATH
 
+# Fixes a bug where programs opening file picker would crash
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/local/share:/usr/share
+
+# Directories to be prepended to $PATH
 declare -a dirs_to_prepend
 dirs_to_prepend=(
   "/usr/local/bin"
@@ -15,10 +18,10 @@ dirs_to_prepend=(
   "/usr/local/"
   "$HOME/.local/bin"
   "$HOME/dotfiles/bin"
-  "$HOME/go/bin" # go binaries
+  "$HOME/go/bin"
   "$HOME/bin"
   "$HOME/.cargo/bin" # rust binaries
-  "$HOME/.yarn/bin" # rust binaries
+  "$HOME/.yarn/bin"
   "$HOME/work/arcanist/arcanist/bin"
   "$HOME/tools/arcanist/bin"
   "$HOME/tools/"
