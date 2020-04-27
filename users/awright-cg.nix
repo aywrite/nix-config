@@ -46,6 +46,11 @@
           insteadOf = "https://bitbucket.com/";
         };
       };
+      url = {
+        "git@gitlab.covergenius.biz:" = {
+          insteadOf = "https://gitlab.covergenius.biz";
+        };
+      };
     };
   };
 }
