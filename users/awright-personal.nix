@@ -12,6 +12,12 @@
     # other
     firefox
     cointop
+
+    # kubernetes
+    kubectl
+    kubernetes-helm
+    kustomize
+    minikube
   ];
 
   home.sessionVariables = {
