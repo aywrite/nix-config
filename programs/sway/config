@@ -189,8 +189,10 @@ input "type:keyboard" {
 #
 # Displays
 #
-output eDP-1 pos 0 0 res 3840x2160
-output DP-3 pos 1920 0 res 1920x1080
+#output eDP-1 pos 0 0 res 3840x2160
+#output DP-3 pos 1920 0 res 1920x1080
+output eDP-1 pos 0 0 res 1920x1080
+output DP-3 pos 1920 0 res 3840x2160
 
 #
 # Resizing containers:
