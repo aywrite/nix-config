@@ -73,6 +73,7 @@
         "spacing": 10
     },
     "clock": {
+        "format": "{:%a %d | %H:%M}",
         "tooltip-format": "{:%Y-%m-%d | %H:%M}",
         "format-alt": "{:%Y-%m-%d}"
     },
