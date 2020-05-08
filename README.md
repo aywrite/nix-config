@@ -8,7 +8,7 @@ I use `zsh` as my main shell, customized using `oh-my-zsh`.
 
 ## Installation
 
-This repository contains user configuration deployed using the helpful tool [Home Manager](https://github.com/rycee/home-manager). The organisation of my nix files are based on [Hugo Reeves'](https://hugoreeves.com/posts/2019/nix-home). In order to setup a new home space, simply add a home.nix file similar to this one.
+This repository contains user configuration deployed using the helpful tool [Home Manager](https://github.com/rycee/home-manager). The organisation of my nix files are based on [Hugo Reeves' blog post](https://hugoreeves.com/posts/2019/nix-home). In order to setup a new home space, simply add a home.nix file similar to this one.
 
 ```nix
 { config, pkgs, ... }:
@@ -25,10 +25,10 @@ This repository contains user configuration deployed using the helpful tool [Hom
 }
 ```
 
-**Programs** contains default setting for various programs & tools.
-**Machines** contains configuration specific to a given machine.
-**Users** contains configuration specific to a given user, think git config etc.
-**Roles** contains the bulk of the configuration and sets up most user space tools, think neovim and your terminal.
+- **Programs** contains default setting for various programs & tools.
+- **Machines** contains configuration specific to a given machine.
+- **Users** contains configuration specific to a given user, think git config etc.
+- **Roles** contains the bulk of the configuration and sets up most user space tools, think neovim and your terminal.
 
 ## Customize
 
@@ -66,9 +66,7 @@ My old theme (`andrew`) was based on the [agnoster](https://github.com/agnoster/
 
 - Configure restic
 - Write an install script with template/prompts to generate home.nix
-- Update details on local configuration/overrides & secrets
 - Figure out how best to manage root user
-- Make sure binary scripts get sym-linked into PATH somewhere
 
 ### Apps to add
 
