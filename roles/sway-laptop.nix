@@ -45,6 +45,6 @@
     TERMINAL = "alacritty";
     MOZ_ENABLE_WAYLAND = "true";
     #https://github.com/swaywm/sway/issues/5008
-    WLR_DRM_NO_MODIFIERS=1;
+    WLR_DRM_NO_MODIFIERS = 1;
   };
 }

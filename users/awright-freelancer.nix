@@ -19,11 +19,13 @@
     firefox
 
     # python 3 development environment
-    (python3.withPackages(ps: [
+    (python3.withPackages (ps: [
       ps.python-language-server
       ps.setuptools
       # type checking, import sorting and code formatting
-      ps.pyls-mypy ps.pyls-isort ps.pyls-black
+      ps.pyls-mypy
+      ps.pyls-isort
+      ps.pyls-black
     ]))
   ];
 
