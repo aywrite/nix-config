@@ -53,5 +53,5 @@ alias xcc='xclip -selection clipboard'
 
 # firejail
 alias ff-tmp="firejail --private-tmp firefox -no-remote"
-alias ff-personal="firejail --ignore=private-dev --private=$HOME/.firejail/personal firefox -no-remote"
-alias ff-work="firejail --ignore=private-dev --private=$HOME/.firejail/work firefox -no-remote"
+alias ff-personal="firejail --ignore=private-dev --ignore=nodbus --private=$HOME/.firejail/personal firefox -no-remote"
+alias ff-work="firejail --ignore=private-dev --ignore=nodbus --private=$HOME/.firejail/work firefox -no-remote"
