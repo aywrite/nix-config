@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 let
   # this idea is from https://github.com/BrianHicks/dotfiles.nix/blob/master/dotfiles/zsh.nix
   extras = [
@@ -9,7 +8,8 @@ let
     ./shell/shell_functions
   ];
   extraInitExtra = builtins.foldl' (soFar: new: soFar + "\n" + builtins.readFile new) "" extras;
-in {
+in
+{
   home.file.".zsh-themes" = {
     source = ./shell/zsh-themes;
     recursive = true;

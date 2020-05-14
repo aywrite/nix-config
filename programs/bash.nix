@@ -1,11 +1,11 @@
 { pkgs, ... }:
-
 let
   extras = [
     ./shell/bashrc
   ];
   extraInitExtra = builtins.foldl' (soFar: new: soFar + "\n" + builtins.readFile new) "" extras;
-in {
+in
+{
   programs.bash = {
     enable = true;
     initExtra = ''

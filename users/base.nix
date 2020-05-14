@@ -34,6 +34,8 @@
     direnv
 
     # Languages
+    # nix
+    nixpkgs-fmt
     # go
     go
     golangci-lint
@@ -41,11 +43,13 @@
     # Need this for coc vim plugin
     nodejs
     # python 3 development environment
-    (python3.withPackages(ps: [
+    (python3.withPackages (ps: [
       ps.python-language-server
       ps.setuptools
       # type checking, import sorting and code formatting
-      ps.pyls-mypy ps.pyls-isort ps.pyls-black
+      ps.pyls-mypy
+      ps.pyls-isort
+      ps.pyls-black
     ]))
 
   ] ++ lib.optionals pkgs.stdenv.isDarwin [
@@ -73,24 +77,24 @@
       # Folder view configuration files
       ".DS_Store"
       "Desktop.ini"
-     # Thumbnail cache files
-     "._*"
-     "*~"
-     "Thumbs.db"
-     # Files that might appear on external disks
-     ".Spotlight-V100"
-     ".Trashes"
-     # Compiled Python files
-     "*.pyc"
-     ".mypy_cache/"
-     # npm & bower
-     "bower_components"
-     "node_modules"
-     "npm-debug.log"
-     # IDEs stuff
-     ".idea"
-     # haskell
-     ".o"
+      # Thumbnail cache files
+      "._*"
+      "*~"
+      "Thumbs.db"
+      # Files that might appear on external disks
+      ".Spotlight-V100"
+      ".Trashes"
+      # Compiled Python files
+      "*.pyc"
+      ".mypy_cache/"
+      # npm & bower
+      "bower_components"
+      "node_modules"
+      "npm-debug.log"
+      # IDEs stuff
+      ".idea"
+      # haskell
+      ".o"
     ];
   };
 }
