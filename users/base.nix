@@ -2,6 +2,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ../programs/python.nix
+  ];
+
   home.packages = with pkgs; [
     # Basic utilities
     ripgrep
@@ -42,15 +46,6 @@
 
     # Need this for coc vim plugin
     nodejs
-    # python 3 development environment
-    (python3.withPackages (ps: [
-      ps.python-language-server
-      ps.setuptools
-      # type checking, import sorting and code formatting
-      ps.pyls-mypy
-      ps.pyls-isort
-      ps.pyls-black
-    ]))
 
   ] ++ lib.optionals pkgs.stdenv.isDarwin [
     # TODO this doesn't belong here
