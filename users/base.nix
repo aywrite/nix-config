@@ -12,6 +12,7 @@
     unzip
     git
     fzf
+    colordiff
 
     # Network utilities
     mtr
