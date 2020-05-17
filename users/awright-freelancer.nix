@@ -9,24 +9,12 @@
   ];
 
   home.packages = with pkgs; [
-    # TODO copy these changes to awright personal
-
     # dev ops
     kubectl
     google-cloud-sdk
 
     # other
     firefox
-
-    # python 3 development environment
-    (python3.withPackages (ps: [
-      ps.python-language-server
-      ps.setuptools
-      # type checking, import sorting and code formatting
-      ps.pyls-mypy
-      ps.pyls-isort
-      ps.pyls-black
-    ]))
   ];
 
   programs.git = {
