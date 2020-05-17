@@ -12,6 +12,7 @@
     # dev ops
     argocd
     aws-iam-authenticator
+    awscli
     google-cloud-sdk
     kubectl
     kubernetes-helm
