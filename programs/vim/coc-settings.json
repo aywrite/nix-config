@@ -1,0 +1,10 @@
+{
+  // Default settings for the coc vim plugin, similar to vscode
+  // Python
+  "python.jediEnabled": false,
+  "python.formatting.provider": "black",
+  "python.linting.enabled": false,
+  "python.analysis.diagnosticEnabled": false,
+  "pyls.plugins.pycodestyle.enabled": false,
+  "pyls.plugins.pyflakes.enabled": false
+}

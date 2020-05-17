@@ -4,6 +4,8 @@ let
   vimRC = builtins.readFile ./vim/vimrc;
 in
 {
+  xdg.configFile."nvim/coc-settings.json".source = ../programs/vim/coc-settings.json;
+
   programs.neovim = {
     enable = true;
 
@@ -20,35 +22,35 @@ in
       fzfWrapper
       vim-rooter
       vim-test
-      vim-colors-solarized
       vim-tmux-navigator
       supertab
-      #async
       vim-dispatch
       fugitive
       surround
+      ale
+      LanguageClient-neovim
+      vimwiki
+      # --- Theme ---
       airline
       vim-airline-themes
-      ale
-      # language specific plugins
-      #vim-prometheus
-      vim-toml
-      vim-go
-      vim-terraform
-      #vim-haskell-indent
+      vim-colors-solarized
+      # --- language specific plugins ---
       #vim-graphql
-      vimwiki
-      typescript-vim
-      vim-ledger
+      #vim-haskell-indent
+      #vim-prometheus
       Jenkinsfile-vim-syntax
-      vim-javascript
-      vim-puppet
-      rust-vim
       arcanist
       thrift
+      rust-vim
+      typescript-vim
       vim-beancount
+      vim-go
+      vim-javascript
+      vim-ledger
       vim-nix
-      LanguageClient-neovim
+      vim-puppet
+      vim-terraform
+      vim-toml
     ];
   };
 }
