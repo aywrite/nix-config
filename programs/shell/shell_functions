@@ -28,6 +28,12 @@ ag-replace() {
   ag "$1" --files-with-matches | xargs -I {} sed -i '.back' -e "s/$1/$2/g" {}
 }
 
+# Delete all branches which no longer exist in the remote
+# prompt for confirmation before running.
+git-prune-branches() {
+  git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r --interactive git branch -D
+}
+
 # ----- AWS commands ---------
 # requires yawsi (go get github.com/amitsaha/yawsi)
 
