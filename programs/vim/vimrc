@@ -3,7 +3,7 @@ set shell=/bin/sh
 let mapleader = "\<Space>"
 
 " --- coc stuff ---
-let g:coc_global_extensions = ['coc-eslint', 'coc-rls', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-phpls', 'coc-go']
+let g:coc_global_extensions = ['coc-eslint', 'coc-rls', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-python', 'coc-yaml', 'coc-phpls', 'coc-go']
 
 " Better display for messages
 set cmdheight=2
@@ -21,6 +21,7 @@ nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
 nmap <silent> <leader>r <Plug>(coc-rename)
 nmap <silent> <leader>d :call <SID>show_documentation()<CR>
+nmap <silent> <leader>f :call CocAction('format')<CR>
 
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -40,14 +41,14 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'typescript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
-    \ 'python': ['pyls'],
+    \ 'python': [],
     \ }
 
 nmap <leader>m :call LanguageClient_contextMenu()<CR>
 "nmap <leader>d :call LanguageClient_textDocument_hover()<CR>
 "nmap <leader>g :call LanguageClient_textDocument_definition()<CR>
 nmap <leader>s :call LanguageClient_textDocument_documentSymbol()<CR>
-nmap <leader>f :call LanguageClient_textDocument_formatting()<CR>
+"nmap <leader>f :call LanguageClient_textDocument_formatting()<CR>
 
 let g:LanguageClient_changeThrottle = 0.5
 let g:LanguageClient_diagnosticsDisplay = {
@@ -83,6 +84,8 @@ let g:LanguageClient_diagnosticsDisplay = {
 
 " testing
 
+nmap <silent> <leader>t :TestFile<CR>
+
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ta :TestSuite<CR>
@@ -95,9 +98,9 @@ nmap <silent> <leader>tg :TestVisit<CR>
 autocmd InsertLeave * set nopaste
 
 " Default indentation settings
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 
@@ -124,8 +127,6 @@ syntax enable
 " linting
 let g:ale_rust_cargo_use_check = 1
 let g:ale_rust_cargo_check_all_targets = 1
-let g:ale_sign_error = '!'
-let g:ale_sign_warning = '>'
 let g:ale_rust_rls_config = {
 	\ 'rust': {
 		\ 'all_targets': 1,
@@ -134,13 +135,17 @@ let g:ale_rust_rls_config = {
 	\ }
 	\ }
 let g:ale_rust_rls_toolchain = ''
-let g:ale_linters = {'rust': ['rls']}
+let g:ale_linters = {
+    \ 'rust': ['rls'],
+    \ 'python': ['mypy', 'pylint'],
+    \ }
+
 highlight ALEErrorSign ctermfg=red
 highlight ALEWarningSign ctermfg=yellow
 let g:ale_sign_error = "✖"
 let g:ale_sign_warning = "⚠"
 let g:ale_sign_info = "i"
-let g:ale_sign_hint = "➤"
+let g:ale_sign_hint = ">"
 
 " use fzf as ctl-p
 nnoremap <silent> <C-p> :Files<CR>
@@ -177,6 +182,9 @@ set statusline+=%*
 " wrap errors at bottom of vim screen
 autocmd FileType qf setlocal wrap
 
+" support for comments in json
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
 " ------ Python Settings ------
 
 " python syntax highlighting
@@ -190,11 +198,9 @@ autocmd FileType python set expandtab
 autocmd FileType python set autoindent
 autocmd FileType python set fileformat=unix
 
-au FileType python let b:dispatch = 'fli service test .'
-au FileType python nmap <leader>t :Dispatch!<CR>
+let test#python#pytest#file_pattern = '.py'
 
 " auto format on save
-"let g:black_linelength = 100
 "autocmd BufWritePre *.py execute ':Black'
 
 " ------ PHP Settings ------

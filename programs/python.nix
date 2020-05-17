@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
 {
-  xdg.configFile."pylintrc".source = ../programs/pylintrc;
+  xdg.configFile."pylintrc".source = ../programs/python/pylintrc;
+  xdg.configFile."flake8".source = ../programs/python/flake8.cfg;
+  xdg.configFile."pycodestyle".source = ../programs/python/pycodestyle.cfg;
 
   home.packages = with pkgs; [
     (python3.withPackages
