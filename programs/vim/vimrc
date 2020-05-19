@@ -3,7 +3,7 @@ set shell=/bin/sh
 let mapleader = "\<Space>"
 
 " --- coc stuff ---
-let g:coc_global_extensions = ['coc-eslint', 'coc-rls', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-python', 'coc-yaml', 'coc-phpls', 'coc-go']
+let g:coc_global_extensions = ['coc-eslint', 'coc-rls', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-python', 'coc-yaml', 'coc-phpls', 'coc-go', 'coc-solargraph', 'coc-lists']
 
 " Better display for messages
 set cmdheight=2

@@ -6,5 +6,6 @@
   "python.linting.enabled": false,
   "python.analysis.diagnosticEnabled": false,
   "pyls.plugins.pycodestyle.enabled": false,
-  "pyls.plugins.pyflakes.enabled": false
+  "pyls.plugins.pyflakes.enabled": false,
+  "solargraph.checkGemVersion": false
 }
