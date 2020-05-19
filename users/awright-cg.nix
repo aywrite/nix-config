@@ -18,6 +18,9 @@
     kubernetes-helm
     kustomize
     minikube
+
+    # ruby
+    solargraph
   ];
 
   home.sessionVariables = {
