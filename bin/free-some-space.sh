@@ -18,11 +18,17 @@ if command -v apt; then
   sudo apt-get autoclean
 fi
 
+# pacman packages
+if command -v paccache; then
+  sudo paccache -r
+fi
+
 # docker
 if command -v docker; then
   docker system prune
 fi
 
+# nix/nixos
 if command -v nix; then
   nix-collect-garbage
   nix optimise-store
