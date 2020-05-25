@@ -269,6 +269,7 @@ autocmd FileType cpp set tabstop=2
 autocmd FileType cpp set softtabstop=2
 autocmd FileType cpp set shiftwidth=2
 
+" ------ Haskell Settings ------
 autocmd BufNewFile,BufRead *xmobarrc set filetype=haskell
 
 " ------ Rust-lang Settings ------
@@ -305,6 +306,9 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 
 " ------ ledger settings -------
 autocmd BufNewFile,BufRead *.journal set filetype=ledger
+
+" ------ CODEOWNERS settings -------
+autocmd BufNewFile,BufRead CODEOWNERS set filetype=config
 
 " ------ docker settings -------
 "let docker_highlight_all=1
