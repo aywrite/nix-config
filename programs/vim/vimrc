@@ -3,7 +3,7 @@ set shell=/bin/sh
 let mapleader = "\<Space>"
 
 " --- coc stuff ---
-let g:coc_global_extensions = ['coc-eslint', 'coc-rls', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-python', 'coc-yaml', 'coc-phpls', 'coc-go', 'coc-solargraph', 'coc-lists']
+let g:coc_global_extensions = ['coc-eslint', 'coc-rls', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-python', 'coc-yaml', 'coc-phpls', 'coc-go', 'coc-solargraph', 'coc-lists', 'coc-dictionary', 'coc-word']
 
 " Better display for messages
 set cmdheight=2
@@ -96,7 +96,7 @@ let g:LanguageClient_diagnosticsDisplay = {
             \ },
             \ }
 
-" testing
+" --- testing ---
 
 nmap <silent> <leader>t :TestFile<CR>
 
@@ -188,11 +188,6 @@ let g:airline_solarized_bg='dark'
 " enable backspace/delete (mac)
 set backspace=indent,eol,start
 
-" Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 " wrap errors at bottom of vim screen
 autocmd FileType qf setlocal wrap
 
@@ -213,9 +208,6 @@ autocmd FileType python set autoindent
 autocmd FileType python set fileformat=unix
 
 let test#python#pytest#file_pattern = '.py'
-
-" auto format on save
-"autocmd BufWritePre *.py execute ':Black'
 
 " ------ PHP Settings ------
 
@@ -241,13 +233,14 @@ autocmd FileType typescript set expandtab
 autocmd FileType typescript set autoindent
 
 " ------ Jenkinsfile Settings ------
-" treat Jenkinsfile.* files as Jenkinsfile files
-autocmd BufNewFile,BufRead Jenkinsfile.* set filetype=Jenkinsfile
 autocmd FileType Jenkinsfile set tabstop=2
 autocmd FileType Jenkinsfile set softtabstop=2
 autocmd FileType Jenkinsfile set shiftwidth=2
 autocmd FileType Jenkinsfile set expandtab
 autocmd FileType Jenkinsfile set autoindent
+
+" treat Jenkinsfile.* files as Jenkinsfile files
+autocmd BufNewFile,BufRead Jenkinsfile.* set filetype=Jenkinsfile
 
 " ------ API blueprint (.apib) settings
 autocmd FileType apiblueprint set expandtab
