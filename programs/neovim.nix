@@ -23,7 +23,6 @@ in
       vim-rooter
       vim-test
       vim-tmux-navigator
-      #supertab
       vim-dispatch
       fugitive
       surround
