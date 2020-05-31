@@ -41,14 +41,6 @@ gaps inner 10
 # Outputs
 output * bg $background fill
 
-# Idle configuration
-# TODO is this working?
-exec swayidle \
-         timeout 300 $lock \
-         timeout 600 'swaymsg "output * dpms off"' \
-         after-resume 'swaymsg "output * dpms on"' \
-         before-sleep $lock
-
 #
 exec mako
 exec slack
