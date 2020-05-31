@@ -29,6 +29,7 @@ in
       ale
       LanguageClient-neovim
       vimwiki
+      vim-gitgutter
       # --- Theme ---
       airline
       vim-airline-themes
