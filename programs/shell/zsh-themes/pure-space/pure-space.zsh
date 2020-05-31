@@ -232,6 +232,9 @@ prompt_pure_precmd() {
   # shows the full path in the title
   prompt_pure_set_title 'expand-prompt' '%~'
 
+	# get vcs info
+	vcs_info
+
   # print the preprompt
   prompt_pure_preprompt_render "precmd"
 
