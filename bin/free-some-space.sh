@@ -30,7 +30,7 @@ fi
 
 # nix/nixos
 if command -v nix; then
-  nix-collect-garbage
+  nix-collect-garbage --delete-older-than 30d
   nix optimise-store
 fi
 
