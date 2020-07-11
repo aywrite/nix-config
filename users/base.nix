@@ -3,6 +3,8 @@
 
 {
   imports = [
+    ../programs/emacs.nix
+    ../programs/neovim.nix
     ../programs/python.nix
   ];
 

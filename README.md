@@ -76,7 +76,6 @@ My old theme (`andrew`) was based on the [agnoster](https://github.com/agnoster/
 - rvm
 - nvm
 - virtualenv wrapper
-- spacemacs
 
 ### Themes
 The following are repos/articles I want to look at which I might use ideas from:
