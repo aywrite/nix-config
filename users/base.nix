@@ -66,6 +66,8 @@
   # Scripts in ./bin directory
   home.file."bin/free-some-space".source = ../bin/free-some-space.sh;
   home.file."bin/pomodoro".source = ../bin/pomodoro.sh;
+  home.file."bin/ff-personal".source = ../bin/ff-personal.sh;
+  home.file."bin/ff-work".source = ../bin/ff-work.sh;
 
   # default git ignores
   programs.git = {
