@@ -4,7 +4,6 @@
   imports = [
     ../users/base.nix
     ../programs/bash.nix
-    ../programs/neovim.nix
     ../programs/tmux/default.nix
   ];
 
