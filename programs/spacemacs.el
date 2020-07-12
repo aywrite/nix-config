@@ -384,6 +384,7 @@ you should place your code here."
   (add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
   (add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
   (add-hook 'org-mode-hook 'set-buffer-variable-pitch)
+  (add-hook 'text-mode-hook 'flyspell-mode)
   ;; use smart quotes when exporting from org mode
   (setq org-export-with-smart-quotes t)
   ;; enforce dependencies in todos
@@ -396,7 +397,7 @@ you should place your code here."
     (interactive)
     (olivetti-mode)
     (olivetti-set-width 120)
-    (setq buffer-face-mode-face '(:family "ETBembo"))
+    (setq buffer-face-mode-face '(:family "Gelasio"))
     (buffer-face-mode)
     (wc-goal-mode))
   (global-set-key (kbd "<f5>") 'no-distraction)

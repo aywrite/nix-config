@@ -14,8 +14,12 @@
     # fonts
     fira-code
     fira-code-symbols
-    source-code-pro
     font-awesome # required for waybar
+    gelasio
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    source-code-pro
 
     # wayland programs
     mako

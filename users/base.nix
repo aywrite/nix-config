@@ -28,6 +28,9 @@
     restic
     neofetch
 
+    # Other utils
+    ispell
+
     # Rust CLI Tools
     exa
     tokei
