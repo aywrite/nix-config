@@ -63,7 +63,6 @@ for_window [app_id="^floating"] floating enable
 for_window [app_id="^floating"] urgent
 
 assign [class="^Slack"] workspace 4
-assign [class="^Emacs"] workspace 5
 
 ### Input configuration
 #
