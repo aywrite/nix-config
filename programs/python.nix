@@ -14,6 +14,7 @@
         ps.pyls-mypy
         ps.pyls-isort
         ps.pyls-black
-      ]))
+      ])
+    )
   ];
 }
