@@ -22,8 +22,12 @@ scs() {
    scrot -s '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/captures/'
 }
 
-kworkon() {
-  kubectl config  get-contexts | fzf | awk '{print $1}' | xargs kubectl config use-context $1
+kwon() {
+  if [ -z "$1" ]; then
+    kubectl config  get-contexts | fzf | awk '{print $1}' | xargs kubectl config use-context $1
+  else
+    kubectl config  get-contexts | fzf --select-1 -q "$1" | awk '{print $1}' | xargs kubectl config use-context
+  fi
 }
 
 # find files matching $1 and replace all $1 with $2 making backups of changed files (.back)
