@@ -17,6 +17,7 @@
     kubernetes-helm
     kustomize
     minikube
+    sops
 
     # ruby
     solargraph
