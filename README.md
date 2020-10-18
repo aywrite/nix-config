@@ -78,6 +78,7 @@ My old theme (`andrew`) was based on the [agnoster](https://github.com/agnoster/
 - virtualenv wrapper
 
 ### Themes
+
 The following are repos/articles I want to look at which I might use ideas from:
 
 - https://github.com/disassembler/network

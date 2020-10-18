@@ -4,6 +4,7 @@
 export SHELL=zsh
 export EDITOR='nvim'
 export DEFAULT_USER=andrewwright
+export WLR_DRM_NO_MODIFIERS=1
 
 # Directory Env Vars
 export GOPATH=$HOME/go

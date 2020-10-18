@@ -42,6 +42,7 @@
     shellcheck
     git-crypt
     direnv
+    pre-commit
 
     # Languages
     # nix
