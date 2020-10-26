@@ -321,6 +321,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; fix wierd coq auto complete bug
   (setq evil-want-abbrev-expand-on-insert-exit nil)
+  (setq org-want-todo-bindings t)
   )
 
 (defun dotspacemacs/user-config ()
