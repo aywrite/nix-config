@@ -70,7 +70,6 @@ values."
      phabricator
      olivetti
      wc-goal-mode
-     doom-themes
     )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -144,9 +143,8 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(solarized-dark
-                         doom-molokai
                          spacemacs-light
-                         solarized-dark)
+                        )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -333,10 +331,6 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;; use "jk" instead of ESC
   (setq-default evil-escape-key-sequence "jk")
-  ;; Custom todo keywords
-  (with-eval-after-load 'org
-    (setq org-todo-keywords
-         '((sequence "TODO(t!)" "INPROGRESS(p!)" "WAITING(w@/!)""|" "DONE(d!)" "CANCELLED(c@)"))))
   ;; rogue custom org settings
   (with-eval-after-load 'org
     (setq org-startup-indented t
@@ -360,6 +354,9 @@ you should place your code here."
   (setq org-log-into-drawer "LOGGING")
   ;; enforce dependencies in todos
   (setq org-enforce-todo-dependencies t)
+  ;; Custom todo keywords
+  (setq org-todo-keywords
+       '((sequence "TODO(t!)" "INPROGRESS(p!)" "WAITING(w@/!)""|" "DONE(d!)" "CANCELLED(c@)")))
   ;; VIM style window navigation
   (define-key evil-normal-state-map (kbd "C-h") #'evil-window-left)
   (define-key evil-normal-state-map (kbd "C-j") #'evil-window-down)
@@ -450,30 +447,7 @@ you should place your code here."
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(org-agenda-files
    (quote
-    ("~/org/home.org" "~/org/work.org" "~/org/sprint.org" "~/org/inbox.org" "~/org/notes.org" "~/org/scratch.org")))
- '(org-capture-templates
-   (quote
-    (("p" "Phab TODO" entry
-      (file+headline "~/org/work.org" "Tasks")
-      "* TODO %? [[https://phabricator.tools.flnltd.com/%^{Phabricator Item}][%\\1]]
-      :LOGBOOK:
-      - Created %U
-      :END:" :empty-lines 1)
-     ("t" "General TODO" entry
-      (file+headline "~/org/home.org" "Tasks")
-      "* TODO %?
-      :LOGBOOK:
-      - Created %U
-      :END:" :empty-lines 1)
-     ("d" "Deploy Service" entry
-      (file+headline "~/org/work.org" "Deployments")
-      "* TODO Deploy %^{Version} to %^{Service} [/]
-       - [ ] Dev
-       - [ ] Sandbox
-       - [ ] Prod
-      :LOGBOOK:
-      - Created %U
-      :END:" :empty-lines 1))))
+    ("~/org")))
  '(package-selected-packages
    (quote
     (company-coq company-math math-symbol-lists proof-general writegood-mode web-server w vue-mode edit-indirect ssass-mode vue-html-mode unicode-fonts ucs-utils font-utils persistent-soft list-utils pcache switch-window swiper ivy sublimity solaire-mode snakemake-mode magit-popup shell-switcher realgud test-simple loc-changes load-relative read-lyrics protobuf-mode pretty-mode pile parinfer ov org-web-tools esxml org-variable-pitch org-super-agenda org-pretty-table org-kanban org-journal org-cliplink org-books org-bbq openwith obtt ob-sagemath sage-shell-mode deferred ob-async mustache multiple-cursors minimap levenshtein iorg helpful elisp-refs loop helm-chronos gscholar-bibtex goto-line-preview eros elml direnv dired-subtree dired-hacks-utils cricbuzz enlive conda company-box colormaps chronos calibre buttercup bmp magit git-commit with-editor beacon memoize lv all-the-icons doom-themes phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic ledger-mode wc-goal-mode olivetti mmm-mode markdown-toc markdown-mode gh-md ox-pandoc ht phabricator org-wc auctex-latexmk company-auctex auctex ox-gfm helm-dictionary color-theme-solarized color-theme helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot flyspell-correct-helm flyspell-correct auto-dictionary ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
