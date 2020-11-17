@@ -23,7 +23,7 @@
 
     # system tools
     htop
-    ytop
+    bottom
     ncdu
     restic
     neofetch
