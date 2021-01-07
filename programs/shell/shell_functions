@@ -30,6 +30,18 @@ kwon() {
   fi
 }
 
+function set_proxy() {
+    export {http,https}_proxy='http://10.255.254.1:8118'
+    export {HTTP,HTTPS}_PROXY='http://10.255.254.1:8118'
+    export no_proxy='localhost,.rentalcover.internal,.infrastructure.internal,.xcover.internal,.brightwrite.internal,127.0.0.1/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,224.0.0.0/4,223.255.255.0/24,192.0.0.0/24,191.255.0.0/16,128.0.0.0/8'
+    export NO_PROXY='localhost,.rentalcover.internal,.xcover.internal,.brightwrite.internal,127.0.0.1/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,224.0.0.0/4,223.255.255.0/24,192.0.0.0/24,191.255.0.0/16,128.0.0.0/8'
+}
+
+function unset_proxy() {
+    unset {http,https,no}_proxy
+    unset {HTTP,HTTPS,NO}_PROXY
+}
+
 # find files matching $1 and replace all $1 with $2 making backups of changed files (.back)
 # forward slashed must be escaped.
 ag-replace() {
