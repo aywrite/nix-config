@@ -25,12 +25,6 @@
 
   home.sessionVariables = {
     BROWSER = "ff-work";
-    http_proxy = "http://10.255.254.1:8118";
-    https_proxy = "http://10.255.254.1:8118";
-    HTTP_PROXY = "http://10.255.254.1:8118";
-    HTTPS_PROXY = "http://10.255.254.1:8118";
-    no_proxy = "***REDACTED***";
-    NO_PROXY = "***REDACTED***";
   };
 
   programs.git = {
