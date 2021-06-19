@@ -23,6 +23,11 @@ if command -v paccache; then
   sudo paccache -r
 fi
 
+# yay cache (aur only)
+if command -v yay; then
+  yay -Sc --aur
+fi
+
 # docker
 if command -v docker; then
   docker system prune
