@@ -280,11 +280,13 @@ let g:racer_cmd = "/Users/andrewwright/.cargo/bin/racer"
 " treat .go.tmpl files as go files
 autocmd BufNewFile,BufRead *.go.tmpl set filetype=go
 
-autocmd FileType go nmap <leader>b <Plug>(go-build)
-autocmd FileType go nmap <leader>ta <Plug>(go-test)
-"autocmd FileType go nmap <leader>gd <Plug>(go-def)
-autocmd FileType go nmap <leader>l <Plug>(go-metalinter)
-autocmd FileType go nmap <leader>sd <Plug>(go-doc)
+"autocmd FileType go nmap <leader>b <Plug>(go-build)
+"autocmd FileType go nmap <leader>ta <Plug>(go-test)
+autocmd FileType go nmap <leader>gd <Plug>(go-def)
+autocmd FileType go nmap <leader>d <Plug>(go-doc)
+autocmd FileType go nmap <leader>r <Plug>(go-rename)
+"autocmd FileType go nmap <leader>l <Plug>(go-metalinter)
+"autocmd FileType go nmap <leader>sd <Plug>(go-doc)
 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
