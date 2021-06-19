@@ -53,13 +53,6 @@
 
     # Need this for coc vim plugin
     nodejs
-
-  ] ++ lib.optionals pkgs.stdenv.isDarwin [
-    # TODO this doesn't belong here
-    # Better userland for macOS
-    coreutils
-    findutils
-    gnugrep
   ];
 
   programs.fzf = {
