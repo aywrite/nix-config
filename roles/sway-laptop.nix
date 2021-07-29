@@ -33,7 +33,7 @@
   xdg.configFile."waybar".source = ../programs/waybar;
   xdg.configFile."mako".source = ../programs/mako;
 
-  home.file.".profile".source = ../programs/xorg/xprofile;
+  home.file.".xprofile".source = ../programs/xorg/xprofile;
   xresources.extraConfig = builtins.readFile ../programs/xorg/Xresources;
 
   programs.alacritty = {
