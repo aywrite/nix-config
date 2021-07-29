@@ -7,7 +7,7 @@
 
   home.packages = with pkgs; [
     (
-      python3.withPackages (ps: [
+      python38.withPackages (ps: [
         ps.python-language-server
         ps.setuptools
         # type checking, import sorting and code formatting
