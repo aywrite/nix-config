@@ -51,6 +51,7 @@ in
       vim-puppet
       vim-terraform
       vim-toml
+      vim-jsonnet
     ];
   };
 }
