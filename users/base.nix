@@ -8,6 +8,9 @@
     ../programs/python.nix
   ];
 
+  home.homeDirectory = "/home/awright";
+  home.username = "awright";
+
   home.packages = with pkgs; [
     # Basic utilities
     ripgrep
