@@ -53,6 +53,9 @@
     # go
     go
     golangci-lint
+    # jsonnet
+    jsonnet
+    jsonnet-bundler
 
     # Need this for coc vim plugin
     nodejs
