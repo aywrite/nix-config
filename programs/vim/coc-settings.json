@@ -7,5 +7,7 @@
   "python.analysis.diagnosticEnabled": false,
   "pyls.plugins.pycodestyle.enabled": false,
   "pyls.plugins.pyflakes.enabled": false,
-  "solargraph.checkGemVersion": false
+  "solargraph.checkGemVersion": false,
+  // rustup needs to be disabled when running rust is managed via nix
+  "rust-client.disableRustup": true
 }
