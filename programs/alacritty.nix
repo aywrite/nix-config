@@ -4,12 +4,11 @@
     "TERM" = "xterm-256color";
   };
 
-  background_opacity = 0.95;
-
   window = {
     padding.x = 10;
     padding.y = 10;
     decorations = "full";
+    opacity = 0.95;
   };
 
   font = {
