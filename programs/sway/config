@@ -52,7 +52,7 @@ workspace 4
 exec slack
 
 workspace 3
-exec ff-work
+exec google-chrome-stable
 
 workspace 2
 exec $term
@@ -191,8 +191,8 @@ input "type:keyboard" {
 #
 # Application shortcuts:
 #
-    bindsym $mod+Shift+m exec google-chrome-stable meet.google.com
-    bindsym $mod+i exec ff-work
+    bindsym $mod+Shift+m exec google-chrome-stable --app=https://meet.google.com
+    bindsym $mod+i exec google-chrome-stable
 
 #
 # Displays

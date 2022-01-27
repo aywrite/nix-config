@@ -25,7 +25,7 @@
   ];
 
   home.sessionVariables = {
-    BROWSER = "ff-work";
+    BROWSER = "google-chrome-stable";
   };
 
   programs.git = {
