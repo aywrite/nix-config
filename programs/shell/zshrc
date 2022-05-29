@@ -28,6 +28,7 @@ dirs_to_prepend=(
   "$HOME/work/arcanist/arcanist/bin"
   "$HOME/tools/arcanist/bin"
   "$HOME/tools/"
+  "$HOME/.krew/bin"
   "/usr/local/opt/bison/bin"
 )
 
