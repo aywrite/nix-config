@@ -30,6 +30,11 @@ kwon() {
   fi
 }
 
+# KubernetesInteractiveDrain
+kid() {
+  kubectl get nodes -L 'failure-domain.beta.kubernetes.io/zone' -L nodegroup -L environment | fzf | awk '{print $1}' | xargs kubectl drain --ignore-daemonsets --delete-emptydir-data=true
+}
+
 function set_proxy() {
     export {http,https}_proxy='http://10.255.254.1:8118'
     export {HTTP,HTTPS}_PROXY='http://10.255.254.1:8118'
@@ -63,23 +68,28 @@ git-prune-branches() {
 # aws-ssh dev projects_dao
 # aws-ssh -i i-00827c6b810d8a2f2
 aws-ssh() {
-  profile=$1
-  filter=""
-  shift
-  while (( $# > 0)); do
-    case $1 in
-      -i|--instance) filter="--instance-id=$2"
-          break
-          ;;
-      *) filter="--tags=Name:$1"
-          break
-    esac
-    shift
-  done
+  #filter=""
+  #shift
+  #while (( $# > 0)); do
+  #  case $1 in
+  #    -i|--instance) filter="--instance-id=$2"
+  #        break
+  #        ;;
+  #    -e|--environment) filter="--tags=Environment=$2"
+  #        break
+  #        ;;
+  #    *) filter="--tags=Name:$1"
+  #        break
+  #  esac
+  #  shift
+  #done
   # if no role or instance is provided then fetches all instances, this is quite slow though
-  host=$(AWS_PROFILE=$profile yawsi ec2 describe-instances $filter --list-format "{{.PrivateIPAddresses}} : {{.PublicIP}}")
-  private_ip=$(echo $host | awk -F ":" '{print $1}' | awk '{$1=$1;print}' | tr -d "[]")
-  public_ip=$(echo $host | awk -F ":" '{print $2}' | awk '{$1=$1;print}' | tr -d "[]")
+  #host=$(yawsi ec2 describe-instances $filter --list-format "{{.PrivateIPAddresses}} : {{.PublicIP}}")
+  host=$(aws ec2 describe-instances \
+    --query 'Reservations[*].Instances[*].{Instance:InstanceId,Type:InstanceType,Name:Tags[?Key == `Name`]|[0].Value,Environment:Tags[?Key == `Environment`]|[0].Value,PrivateIP:PrivateIpAddress,PublicIP:PublicIpAddress}' \
+    --output=table | fzf)
+  private_ip=$(echo $host | awk -F "|" '{print $5}' | awk '{$1=$1;print}' | tr -d "[]")
+  public_ip=$(echo $host | awk -F "|" '{print $6}' | awk '{$1=$1;print}' | tr -d "[]")
   if ! [ -z "$private_ip" ]; then
     ssh "awright@$private_ip"
   else
@@ -87,6 +97,29 @@ aws-ssh() {
   fi
 }
 
-aws-asg() {
-  AWS_PROFILE=$1 yawsi ec2 describe-asgs
+aws-profile() {
+  if [ -z "$1" ]; then
+    AWS_PROFILE=$(aws configure list-profiles | fzf)
+  else
+    AWS_PROFILE=$(aws configure list-profiles | fzf --select-1 -q "$1")
+  fi
+  export AWS_PROFILE=$AWS_PROFILE
+}
+
+aws-console() {
+  if [ -z "$1" ]; then
+    output=$(aws-sso-util roles | fzf)
+  else
+    output=$(aws-sso-util roles | fzf --select-1 -q "$1")
+  fi
+  account_id=$(echo "$output" | awk -F " " '{print $2}' | tr -d "[]")
+  role=$(echo "$output" | awk -F " " '{print $3}' | tr -d "[]")
+  aws-sso-util console launch --logout-first --account-id="$account_id" --role-name="$role"
+}
+
+aws-list() {
+  host=$(aws ec2 describe-instances \
+    --query 'Reservations[*].Instances[*].{Instance:InstanceId,Type:InstanceType,Name:Tags[?Key == `Name`]|[0].Value,Environment:Tags[?Key == `Environment`]|[0].Value,PrivateIP:PrivateIpAddress,PublicIP:PublicIpAddress}' \
+    --output=table | fzf)
+  echo $host
 }
