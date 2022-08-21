@@ -12,6 +12,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+INITIAL_ROOT=$(df -h)
+
 # debian packages
 if command -v apt; then
   sudo apt autoremove
@@ -21,6 +23,9 @@ fi
 # pacman packages
 if command -v paccache; then
   sudo paccache -r
+fi
+if command -v pacman; then
+  sudo pacman -Sc
 fi
 
 # yay cache (aur only)
@@ -44,6 +49,10 @@ if command -v yarn; then
   yarn cache clean
 fi
 
+# logs
+if command -v journalctl; then
+  journalctl --vacuum-time=30d
+fi
+
 # Report usage
-df -h /
-df -h ~/
+diff <(echo $INITIAL_ROOT) <(df -h)

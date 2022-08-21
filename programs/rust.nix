@@ -1,20 +1,19 @@
 { pkgs, ... }:
 let
-  moz_overlay = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
-  nixpkgs = import <nixpkgs> { overlays = [ moz_overlay ]; };
-  rustStable = nixpkgs.latest.rustChannels.stable.rust.override {
+  rust-overlay = import (builtins.fetchTarball https://github.com/oxalica/rust-overlay/archive/master.tar.gz);
+  nixpkgs = import <nixpkgs> { overlays = [ rust-overlay ]; };
+  rustStable = nixpkgs.rust-bin.stable.latest.default.override {
     extensions = [
       "rust-src"
-      "rls-preview"
       "clippy-preview"
       "rustfmt-preview"
+      "rust-analysis"
     ];
   };
 in
 {
   home.packages = with nixpkgs; [
     rustStable
-    #rls
-    #rustup
+    rust-analyzer
   ];
 }
