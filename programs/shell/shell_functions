@@ -30,6 +30,13 @@ kwon() {
   fi
 }
 
+kexec() {
+  namespace=$(kubectl get ns | fzf | cut -d ' ' -f 1)
+  pod=$(kubectl get pods --namespace="${namespace}" | fzf | cut -d ' ' -f 1)
+  echo "Running: kubectl exec ${pod} --namespace=${namespace} it -- $@"
+  kubectl exec "$pod" --namespace="$namespace" -it -- "$@"
+}
+
 # KubernetesInteractiveDrain
 kid() {
   kubectl get nodes -L 'failure-domain.beta.kubernetes.io/zone' -L nodegroup -L environment | fzf | awk '{print $1}' | xargs kubectl drain --ignore-daemonsets --delete-emptydir-data=true
