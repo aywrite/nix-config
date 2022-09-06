@@ -12,7 +12,6 @@
     argocd
     aws-iam-authenticator
     awscli2
-    awless
     google-cloud-sdk
     kubectl
     kubernetes-helm
