@@ -56,6 +56,8 @@
     # jsonnet
     jsonnet
     jsonnet-bundler
+    # terraform
+    terraform-ls
 
     # Need this for coc vim plugin
     nodejs
