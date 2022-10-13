@@ -9,5 +9,18 @@
   "pyls.plugins.pyflakes.enabled": false,
   "solargraph.checkGemVersion": false,
   // rustup needs to be disabled when running rust is managed via nix
-  "rust-client.disableRustup": true
+  "rust-client.disableRustup": true,
+  // terraform ls https://github.com/hashicorp/terraform-ls/blob/main/docs/USAGE.md
+  "languageserver": {
+	  "terraform": {
+	  	"command": "terraform-ls",
+	  	"args": ["serve"],
+	  	"filetypes": [
+	  		"terraform",
+	  		"tf"
+	  	],
+	  	"initializationOptions": {},
+	  	"settings": {}
+	  }
+	}
 }
