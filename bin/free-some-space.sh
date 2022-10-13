@@ -54,5 +54,5 @@ if command -v journalctl; then
   journalctl --vacuum-time=30d
 fi
 
-# Report usage
-diff <(echo $INITIAL_ROOT) <(df -h)
+# Report usage changes
+diff <(echo "$INITIAL_ROOT") <(df -h) | colordiff
