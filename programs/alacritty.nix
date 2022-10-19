@@ -13,7 +13,6 @@
 
   font = {
     size = 12.0;
-    use_thin_strokes = true;
 
     normal.family = "FiraCode";
     bold.family = "FiraCode";
