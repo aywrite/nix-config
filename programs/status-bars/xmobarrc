@@ -6,7 +6,7 @@ Config {  font           = "xft:xos4 Terminus:pixelsize=18:antialias=true:hintin
         , fgColor       = "#586e75"
         , alpha         = 255
         , position      = TopW L 100
-        , commands = [ 
+        , commands = [
 		          Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                         , Run Network "eth1" ["-L","0","-H","32","--normal","green","--high","red"] 10
 			-- CPU status
@@ -19,7 +19,7 @@ Config {  font           = "xft:xos4 Terminus:pixelsize=18:antialias=true:hintin
                         , Run Memory         ["-t","Mem: <usedratio>%"] 10
 
                         -- battery monitor
-                        , Run Battery        [ "-t", "<fc=#b58900><acstatus></fc>" 
+                        , Run Battery        [ "-t", "<fc=#b58900><acstatus></fc>"
                                              , "--Low"      , "15"        -- units: %
                                              , "--High"     , "80"        -- units: %
                                              , "--low"      , "#dc322f"
