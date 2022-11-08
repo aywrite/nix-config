@@ -53,7 +53,7 @@ assign [class="^Slack"] workspace 4
     bindsym $mod+n exec makoctl dismiss
     bindsym $mod+Print exec $screenshot
     bindsym $mod+Shift+Print exec $screenclip
-    
+
     # Kill focused window
     bindsym $mod+Shift+q kill
     bindsym $mod+c reload

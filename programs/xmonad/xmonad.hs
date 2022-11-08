@@ -46,7 +46,7 @@ import XMonad.Util.WorkspaceCompare
 main = do
         xmproc <- spawnPipe myStatusBar
 
-        xmonad 
+        xmonad
             $ dynamicProjects projects
             $ withNavigation2DConfig myNav2DConf
             $ withUrgencyHook LibNotifyUrgencyHook
@@ -348,7 +348,7 @@ scratchpads =
     [ (NS "chatwork"  myWorkChat isChat defaultFloating),
       (NS "tasks" myTaskManager isTasks defaultFloating),
       (NS "emacs" myEmacs isEmacs defaultFloating)
-    ] 
+    ]
 
 chatWorkResource = "chat.tools.flnltd.com__home"
 isChat = (resource =? chatWorkResource)
@@ -367,7 +367,7 @@ isEmacs = (resource =? emacsResource)
 myLogHook h = do
 
     ewmhDesktopsLogHook
-    dynamicLogWithPP $ def 
+    dynamicLogWithPP $ def
 
         { ppCurrent             = xmobarColor active "" . wrap "[" "]"
         , ppTitle               = xmobarColor active "" . shorten 40
@@ -378,7 +378,7 @@ myLogHook h = do
         , ppWsSep               = " | "
         , ppLayout              = xmobarColor yellow ""
         , ppOrder               = id
-        , ppOutput              = hPutStrLn h  
+        , ppOutput              = hPutStrLn h
        }
 
 

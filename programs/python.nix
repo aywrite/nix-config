@@ -14,6 +14,8 @@
         ps.pylsp-mypy
         ps.pyls-isort
         ps.python-lsp-black
+        # other
+        ps.pipx
       ])
     )
   ];

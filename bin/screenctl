@@ -6,7 +6,7 @@ gen_list() {
 }
 
 if [[ -z "$@" ]]; then
-   gen_list 
+   gen_list
 else
    ~/.reset_screen.sh
    bash ~/.screenlayout/$@

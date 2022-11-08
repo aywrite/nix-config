@@ -28,7 +28,7 @@
     userEmail = "andrew.wright502@gmail.com";
     userName = "awright";
     signing.key = "0x46BAAEE2AFADB938";
-    signing.signByDefault = true;
+    signing.signByDefault = false;
     extraConfig = {
       url = {
         "git@github.com:" = {
