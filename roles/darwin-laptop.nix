@@ -4,6 +4,7 @@
   imports = [
     ../programs/zsh.nix
     ../programs/rust.nix
+    ../programs/gpg.nix
   ];
 
   # TODO where to put this
@@ -20,7 +21,8 @@
     source-code-pro
 
     # other
-    pinentry-mac
+    pinentry
+    yubikey-personalization
   ];
   # TODO move this to user?
   fonts.fontconfig.enable = true;
