@@ -15,8 +15,6 @@
   home.stateVersion = "22.05";
   manual.manpages.enable = false;
 
-  #programs.home-manager.enable = true;
-
   imports = [
     ./machines/<machine-name>.nix
     ./users/<user-name>.nix

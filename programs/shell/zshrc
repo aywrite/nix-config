@@ -1,4 +1,6 @@
-source $HOME/.nix-profile/etc/profile.d/nix.sh
+if [ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
+  source $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
 
 # Fixes a bug where programs opening file picker would crash
 export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/local/share:/usr/share
@@ -30,6 +32,7 @@ dirs_to_prepend=(
   "$HOME/tools/"
   "$HOME/.krew/bin"
   "/usr/local/opt/bison/bin"
+  "/opt/homebrew/bin"
 )
 
 for dir in ${(k)dirs_to_prepend[@]}

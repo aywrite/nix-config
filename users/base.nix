@@ -23,6 +23,7 @@
     mtr
     netcat
     nettools
+    wget
 
     # system tools
     htop
