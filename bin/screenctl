@@ -1,14 +1,13 @@
 #!/bin/bash
 gen_list() {
     for cfg_script in ~/.screenlayout/*.sh; do
-	echo $(basename $cfg_script)
+	echo "$(basename "$cfg_script")"
     done
 }
 
-if [[ -z "$@" ]]; then
+if [[ -z "$*" ]]; then
    gen_list
 else
    ~/.reset_screen.sh
-   bash ~/.screenlayout/$@
+   bash ~/.screenlayout/"$*"
 fi
-
