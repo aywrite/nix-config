@@ -1,55 +1,66 @@
 { pkgs, ... }:
 
-{
-  xdg.configFile."pylintrc".source = ../programs/python/pylintrc;
-  xdg.configFile."flake8".source = ../programs/python/flake8.cfg;
-  xdg.configFile."pycodestyle".source = ../programs/python/pycodestyle.cfg;
-  xdg.configFile."ruff.toml".source = ../programs/python/ruff.toml;
+let
+  python = pkgs.python311;
+  pythonPackages = python.pkgs;
 
-  home.packages = with pkgs; [
-    (
-      python310.withPackages (ps: with ps; [
-        # LSP and basic tools
-        python-lsp-server
-        setuptools
-        pip
-        
-        # Type checking and formatting
-        pylsp-mypy
-        pyls-isort
-        python-lsp-black
-        ruff-lsp
-        
-        # Testing
-        pytest
-        pytest-cov
-        
-        # Development tools
-        ipython
-        debugpy
-        
-        # Package management
-        pipx
-        poetry
-        uv
-        
-        # Documentation
-        sphinx
-      ])
-    )
-    
-    # Standalone tools (not Python packages)
+  # Global development tools
+  globalTools = with pkgs; [
     ruff
-    black
-    isort
-    mypy
+    nodePackages.pyright
+    uv
   ];
 
-  # Environment variables for better Python development
+  # Python packages
+  pythonEnvironment = with pythonPackages; [
+    # Core
+    pip
+    virtualenv
+    setuptools
+
+    # LSP and tools
+    python-lsp-server
+    python-lsp-ruff
+    pyls-isort
+    python-lsp-black
+    ruff-lsp
+
+    # Testing and debugging
+    pytest
+    pytest-cov
+    debugpy
+    ipython
+
+    # Package management
+    pipx
+
+    # Documentation
+    sphinx
+  ];
+
+in
+{
+  # Configuration files
+  xdg.configFile = {
+    "pylintrc".source = ../programs/python/pylintrc;
+    "flake8".source = ../programs/python/flake8.cfg;
+    "pycodestyle".source = ../programs/python/pycodestyle.cfg;
+    "ruff.toml".source = ../programs/python/ruff.toml;
+    "pyproject.toml".source = ./python/pyproject.toml;
+    #"pip/pip.conf".source = ./python/pip.conf;
+    #"pypoetry/config.toml".source = ./python/poetry-config.toml;
+  };
+
+  # Python packages
+  home.packages = [
+    (python.withPackages (ps: pythonEnvironment))
+  ] ++ globalTools;
+
+  # Environment variables
   home.sessionVariables = {
     PYTHONBREAKPOINT = "ipdb.set_trace";
-    PYTHONDONTWRITEBYTECODE = "1";  # Prevent creation of .pyc files
-    PYTHONUNBUFFERED = "1";  # Unbuffered output
-    VIRTUAL_ENV_DISABLE_PROMPT = "1";  # Let shell handle venv prompts
+    PYTHONDONTWRITEBYTECODE = "1"; # Prevent creation of .pyc files
+    PYTHONUNBUFFERED = "1"; # Unbuffered output
+    VIRTUAL_ENV_DISABLE_PROMPT = "1"; # Let shell handle venv prompts
   };
 }

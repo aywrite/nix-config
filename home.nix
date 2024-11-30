@@ -14,10 +14,4 @@
   # changes in each release.
   home.stateVersion = "24.05";
   manual.manpages.enable = false;
-
-  imports = [
-    #./machines/<machine-name>.nix - Uncomment/edit if you need to add hardware specific settings
-    ./users/<user-name>.nix
-    ./roles/<role>.nix
-  ];
 }
