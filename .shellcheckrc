@@ -1,0 +1,8 @@
+# Disable warning about sourcing non-constant files (like ~/.xprofile)
+disable=SC1090
+
+# Disable warning about ShellCheck only supporting sh/bash/dash/ksh
+disable=SC1071
+
+# Disable warning about POSIX sh source undefined (we know our environment)
+disable=SC3046

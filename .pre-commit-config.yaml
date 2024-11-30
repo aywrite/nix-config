@@ -1,9 +1,43 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+    rev: v4.4.0
     hooks:
     -   id: check-yaml
     -   id: check-toml
     -   id: check-json
+        exclude: '.*/coc-settings\.json'
     -   id: trailing-whitespace
+    -   id: end-of-file-fixer
     -   id: check-merge-conflict
+    -   id: check-executables-have-shebangs
+    -   id: detect-private-key
+    -   id: no-commit-to-branch
+        args: [--branch, master, --branch, main]
+
+-   repo: https://github.com/nix-community/nixpkgs-fmt
+    rev: v1.3.0
+    hooks:
+    -   id: nixpkgs-fmt
+
+-   repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.5
+    hooks:
+    -   id: shellcheck
+        args: [--severity=warning]
+        exclude: '.*/zsh-themes/.*'
+
+-   repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.5.3
+    hooks:
+    -   id: commitizen
+        stages: [commit-msg]
+
+#-   repo: local
+#    hooks:
+#    -   id: nix-flake-check
+#        name: Nix flake check
+#        entry: nix flake check
+#        language: system
+#        pass_filenames: false
+#        files: '\.nix$'
+#
