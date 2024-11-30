@@ -36,7 +36,7 @@
     ispell
 
     # Rust CLI Tools
-    exa
+    #exa -- currently broken?
     tokei
     fd
 
