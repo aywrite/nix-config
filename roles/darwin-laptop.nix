@@ -7,6 +7,9 @@
     ../programs/gpg.nix
   ];
 
+  # Set pinentry program for macOS
+  role.pinentryProgram = "${pkgs.pinentry_mac}/bin/pinentry-mac";
+
   # TODO where to put this
   nixpkgs.config.allowUnfree = true;
 
