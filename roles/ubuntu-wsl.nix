@@ -7,6 +7,9 @@
     ../programs/gpg.nix
   ];
 
+  # Set WSL-specific configuration
+  role.isWSL = true;
+
   # TODO where to put this
   nixpkgs.config.allowUnfree = true;
 

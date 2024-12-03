@@ -6,6 +6,7 @@
     ../programs/emacs.nix
     ../programs/neovim.nix
     ../programs/python.nix
+    ../programs/vscode.nix
   ];
 
   home.homeDirectory = "/home/awright";
