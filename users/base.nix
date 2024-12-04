@@ -7,9 +7,10 @@
     ../programs/neovim.nix
     ../programs/python.nix
     ../programs/vscode.nix
+    ../programs/windsurf.nix
   ];
 
-  home.homeDirectory = "/home/awright";
+  home.homeDirectory = if pkgs.stdenv.isLinux then "/home/awright" else "/Users/awright";
   home.username = "awright";
 
   home.packages = with pkgs; [
@@ -19,6 +20,7 @@
     git
     fzf
     colordiff
+    tree
 
     # Network utilities
     mtr
@@ -29,7 +31,7 @@
     # system tools
     htop
     bottom
-    ncdu
+    #ncdu - TODO only install on linux devices
     restic
     neofetch
 

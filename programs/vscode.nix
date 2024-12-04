@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.programs.vscode;
-  
+
   # Common settings for all environments
   baseSettings = {
     # Vim settings
@@ -110,30 +110,30 @@ let
     "editor.autoIndent" = "advanced";
     "editor.renderWhitespace" = "boundary";
     "editor.lineNumbers" = "on";
-    
+
     # Files
     "files.trimTrailingWhitespace" = true;
     "files.insertFinalNewline" = true;
     "files.trimFinalNewlines" = true;
-    
+
     # Terminal
     "terminal.integrated.fontFamily" = "FiraCode Nerd Font";
     "terminal.integrated.fontSize" = 14;
-    
+
     # Git
     "git.enableSmartCommit" = true;
     "git.confirmSync" = false;
     "git.autofetch" = true;
-    
+
     # Python
     "python.formatting.provider" = "black";
     "python.linting.enabled" = true;
     "python.linting.flake8Enabled" = true;
-    
+
     # Nix
     "nix.enableLanguageServer" = true;
     "[nix]"."editor.tabSize" = 2;
-    
+
     # Theme (matching Solarized Dark)
     "workbench.colorTheme" = "Solarized Dark";
     "workbench.startupEditor" = "none";
@@ -141,24 +141,25 @@ let
       "editorBracketMatch.background" = "#00000000";
       "editorBracketMatch.border" = "#2aa19899";
     };
-    
+
     # Window
     "window.zoomLevel" = 0;
-    
+
     # Telemetry
     "telemetry.telemetryLevel" = "off";
   };
 
   # Role-specific settings
-  roleSettings = if config.role.vscodeSettings != null
+  roleSettings =
+    if config.role.vscodeSettings != null
     then config.role.vscodeSettings
-    else {};
+    else { };
 
   # Merge base and role settings
   finalSettings = baseSettings // roleSettings;
 
   # Helper function to create VSCode settings files
-  mkVSCodeSettings = isWSL: 
+  mkVSCodeSettings = isWSL:
     let
       baseFiles = {
         ".vscode/settings.json".text = builtins.toJSON finalSettings;
@@ -168,9 +169,9 @@ let
         ".vscode-server/data/User/settings.json".text = builtins.toJSON finalSettings;
       };
     in
-      if isWSL
-      then baseFiles // wslFiles
-      else baseFiles;
+    if isWSL
+    then baseFiles // wslFiles
+    else baseFiles;
 in
 {
   options.role = {
