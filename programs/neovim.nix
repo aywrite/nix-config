@@ -17,6 +17,7 @@ in
 
     extraConfig = vimRC;
     plugins = with pkgs.vimPlugins // customPlugins; [
+      codeium-vim
       fzf-vim
       coc-nvim
       fzfWrapper

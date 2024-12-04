@@ -7,7 +7,6 @@ let
   # Global development tools
   globalTools = with pkgs; [
     ruff
-    nodePackages.pyright
     uv
   ];
 

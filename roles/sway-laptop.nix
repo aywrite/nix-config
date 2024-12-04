@@ -17,7 +17,7 @@
     font-awesome # required for waybar
     gelasio
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     source-code-pro
 
