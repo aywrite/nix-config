@@ -9,10 +9,10 @@
 
   home.packages = with pkgs; [
     # dev ops
-    argocd
+    # argocd - TODO broken?
     aws-iam-authenticator
     awscli2
-    google-cloud-sdk
+    (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
     kubectl
     kubernetes-helm
     kustomize
@@ -20,6 +20,7 @@
     krew
     terraform
     sops
+    glab
 
     # ruby
     solargraph
@@ -34,7 +35,7 @@
     userEmail = "andrew.w@covergenius.com";
     userName = "Andrew Wright";
     signing.key = "0x46BAAEE2AFADB938";
-    signing.signByDefault = true;
+    #signing.signByDefault = true; TODO re-enable after yubikey fixed
     extraConfig = {
       url = {
         "git@github.com:" = {

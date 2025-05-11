@@ -1,6 +1,6 @@
 # Andrew Wright's Dotfiles/Nix Config
 
-I use [nix](https://nixos.org/nix/) and [home manager](https://github.com/rycee/home-manager) to manage my applications and dotfiles.
+I use [nix](https://nixos.org/nix/) and [home manager](https://github.com/rycee/home-manager) with flakes to manage my applications and dotfiles.
 
 I use `zsh` as my main shell, customized using `oh-my-zsh`.
 
@@ -8,27 +8,62 @@ I use `zsh` as my main shell, customized using `oh-my-zsh`.
 
 ## Installation
 
-This repository contains user configuration deployed using the helpful tool [Home Manager](https://github.com/rycee/home-manager). The organisation of my nix files are based on [Hugo Reeves' blog post](https://hugoreeves.com/posts/2019/nix-home). In order to setup a new home space, simply add a home.nix file similar to this one.
+This repository contains user configuration deployed using [Home Manager](https://github.com/rycee/home-manager) with Nix flakes. The configuration is organized into modular components that can be mixed and matched for different machines and roles.
 
-```nix
-{ config, pkgs, ... }:
+### Quick Start
 
-{
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-  imports = [
-    ./machine/t460.nix
-    ./user/awright-personal.nix
-    ./role/xmonad-laptop.nix
-  ];
-}
+1. Clone and install:
+```bash
+curl -L https://raw.githubusercontent.com/aywrite/nix-config/master/install.sh | bash
 ```
 
-- **Programs** contains default setting for various programs & tools.
-- **Machines** contains configuration specific to a given machine.
-- **Users** contains configuration specific to a given user, think git config etc.
-- **Roles** contains the bulk of the configuration and sets up most user space tools, think neovim and your terminal.
+2. Switch to your configuration:
+```bash
+cd ~/.config/nixpkgs
+
+# For WSL:
+home-manager switch --flake .#awright-wsl
+
+# For XPS 13 with Sway:
+home-manager switch --flake .#awright-xps13
+
+# For Work MacBook:
+home-manager switch --flake .#awright-work-mbp
+```
+
+## Configuration Structure
+
+The configuration is organized into several directories:
+
+- **programs/**: Contains default settings for various programs & tools
+- **machines/**: Machine-specific configurations (hardware, display, etc.)
+- **users/**: User-specific configurations (git config, personal preferences)
+- **roles/**: Role-based configurations that set up specific environments:
+  - `ubuntu-wsl.nix`: Configuration for WSL environment
+  - `sway-laptop.nix`: Configuration for Sway window manager on laptops
+  - `darwin-laptop.nix`: Configuration for macOS environments
+
+### Base Configuration
+All machine configurations inherit from a base configuration in `home.nix` which sets up core Home Manager settings. Machine-specific configurations then add their own modules and roles on top of this base.
+
+### Available Profiles
+
+1. **WSL Profile** (`awright-wsl`):
+   - Base configuration
+   - Personal user settings
+   - WSL-specific adaptations
+
+2. **XPS 13 Profile** (`awright-xps13`):
+   - Base configuration
+   - Personal user settings
+   - Sway window manager setup
+   - Laptop-specific configurations
+
+3. **Work MacBook Profile** (`awright-work-mbp`):
+   - Base configuration
+   - Work user settings
+   - macOS-specific adaptations
+   - Work-related tools and configurations
 
 ## Customize
 
@@ -38,7 +73,7 @@ The dotfiles can be easily extended to suit additional local requirements by usi
 
 #### `~/.zsh.local`
 
-If the `~/.zsh.local` file exists, it will be automatically sourced. This allows the use of environment variables to store secrets without checking them in. In the future I might use something like git-crypt to check in encrypted secrets instead.
+If the `~/.zsh.local` file exists, it will be automatically sourced. This allows the use of environment variables to store secrets without checking them in.
 
 ## Acknowledgements
 

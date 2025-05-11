@@ -12,12 +12,6 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "22.05";
+  home.stateVersion = "24.05";
   manual.manpages.enable = false;
-
-  imports = [
-    ./machines/<machine-name>.nix
-    ./users/<user-name>.nix
-    ./roles/<role>.nix
-  ];
 }

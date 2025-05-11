@@ -155,10 +155,3 @@ URxvt*scrollColor: S_base02
 !! scroll back in things like 'less'
 !!URxvt.secondaryScreen: 1
 !!URxvt.secondaryScroll: 0
-
-
-
-
-
-
-

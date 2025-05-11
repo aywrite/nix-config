@@ -4,7 +4,7 @@
   imports = [
     ../users/base.nix
     ../programs/bash.nix
-    ../programs/tmux/default.nix
+    #../programs/tmux/default.nix
   ];
 
   home.packages = with pkgs; [

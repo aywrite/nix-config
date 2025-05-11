@@ -1,0 +1,88 @@
+{
+  "nodes": {
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1733050161,
+        "narHash": "sha256-lYnT+EYE47f5yY3KS/Kd4pJ6CO9fhCqumkYYkQ3TK20=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "62d536255879be574ebfe9b87c4ac194febf47c5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-24.11",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1733120037,
+        "narHash": "sha256-En+gSoVJ3iQKPDU1FHrR6zIxSLXKjzKY+pnh9tt+Yts=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "f9f0d5c5380be0a599b1fb54641fa99af8281539",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-24.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs",
+        "rust-overlay": "rust-overlay",
+        "spacemacs": "spacemacs"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1733193245,
+        "narHash": "sha256-nwvKoPi3S6XyliqBRuC+01QFF0k94ZOvnoZtbGi/ObM=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "3458f7f946ba61d1a1069aedcc17d7b7616f23cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "spacemacs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1663443599,
+        "narHash": "sha256-DEKvlFi2927oGfaxnhCWd7AYU0TD8yyaWg4I+Fx+8V0=",
+        "owner": "syl20bnr",
+        "repo": "spacemacs",
+        "rev": "491e17ba9cdcb253a3292a3049abb8767c91b9bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "syl20bnr",
+        "ref": "master",
+        "repo": "spacemacs",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
