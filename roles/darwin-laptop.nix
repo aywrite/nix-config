@@ -7,6 +7,9 @@
     ../programs/gpg.nix
   ];
 
+  # Set pinentry program for macOS
+  role.pinentryProgram = "${pkgs.pinentry_mac}/bin/pinentry-mac";
+
   # TODO where to put this
   nixpkgs.config.allowUnfree = true;
 
@@ -16,17 +19,16 @@
     fira-code-symbols
     gelasio
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     source-code-pro
 
     # other
-    pinentry
+    #pinentry
     yubikey-personalization
   ];
   # TODO move this to user?
   fonts.fontconfig.enable = true;
-
 
 
   programs.alacritty = {

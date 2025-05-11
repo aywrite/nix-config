@@ -1,8 +1,6 @@
 { pkgs, ... }:
 let
-  rust-overlay = import (builtins.fetchTarball https://github.com/oxalica/rust-overlay/archive/master.tar.gz);
-  nixpkgs = import <nixpkgs> { overlays = [ rust-overlay ]; };
-  rustStable = nixpkgs.rust-bin.stable.latest.default.override {
+  rustStable = pkgs.rust-bin.stable.latest.default.override {
     extensions = [
       "rust-src"
       "clippy-preview"
@@ -12,7 +10,7 @@ let
   };
 in
 {
-  home.packages = with nixpkgs; [
+  home.packages = with pkgs; [
     rustStable
     rust-analyzer
   ];
