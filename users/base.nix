@@ -10,8 +10,8 @@
     ../programs/windsurf.nix
   ];
 
-  home.homeDirectory = if pkgs.stdenv.isLinux then "/home/awright" else "/Users/awright";
-  home.username = "awright";
+  home.homeDirectory = if pkgs.stdenv.isLinux then "/home/awright" else "/Users/andrew.w";
+  home.username = "andrew.w";
 
   home.packages = with pkgs; [
     # Basic utilities

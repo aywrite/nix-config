@@ -12,6 +12,13 @@ export GOBIN=$HOME/go/bin
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/personal
 
+# 1password CLI
+export OKTA_API_TOKEN="op://Employee/hd7ect55767myodzoilo2k7eau/token"
+export DD_API_KEY="op://Employee/Datadog API Keys - CLI/api key"
+export DD_APP_KEY="op://Employee/Datadog API Keys - CLI/app key"
+export LUMOS_ACCESS_TOKEN="op://Employee/me2b6wg37qkgkeghtaz7762h3i/credential"
+export CLOUDFLARE_API_TOKEN="op://Employee/Cloudflare API Token/token"
+
 # set virtualenvwrapper to global python3
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
