@@ -34,8 +34,8 @@
     enable = true;
     userEmail = "andrew.w@covergenius.com";
     userName = "Andrew Wright";
-    signing.key = "0x46BAAEE2AFADB938";
-    #signing.signByDefault = true; TODO re-enable after yubikey fixed
+    signing.key = "0xA0D1FD637BFB4181";
+    signing.signByDefault = true;
     extraConfig = {
       url = {
         "git@github.com:" = {

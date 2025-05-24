@@ -36,7 +36,8 @@ in
     programs.gpg = {
       enable = true;
       scdaemonSettings = {
-        reader-port = "Yubico Yubikey";
+        reader-port = "Yubico YubiKey OTP+FIDO+CCID";
+        disable-ccid="";
       };
       settings = {
         # https://github.com/drduh/config/blob/master/gpg.conf
