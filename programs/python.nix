@@ -22,7 +22,6 @@ let
     python-lsp-ruff
     pyls-isort
     python-lsp-black
-    ruff-lsp
 
     # Testing and debugging
     pytest
