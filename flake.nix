@@ -78,6 +78,15 @@
             ./roles/darwin-laptop.nix
           ];
         };
+
+        "awright-personal-mbp" = mkHomeConfig {
+          system = "aarch64-darwin";
+          extraModules = [
+            ./users/awright-personal.nix
+            ./machines/mbp-16.nix
+            ./roles/darwin-laptop.nix
+          ];
+        };
       };
     };
 }
