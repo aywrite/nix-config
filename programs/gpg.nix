@@ -37,7 +37,7 @@ in
       enable = true;
       scdaemonSettings = {
         reader-port = "Yubico YubiKey OTP+FIDO+CCID";
-        disable-ccid="";
+        disable-ccid = "";
       };
       settings = {
         # https://github.com/drduh/config/blob/master/gpg.conf
