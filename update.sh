@@ -7,7 +7,7 @@ detect_host() {
     if grep -q "microsoft" /proc/version 2>/dev/null; then
         echo "wsl"
     elif [[ "$OSTYPE" == "darwin"* ]]; then
-        echo "mbp"
+        echo "work-mbp"
     elif [[ -f "/etc/nixos/configuration.nix" ]]; then
         if [[ "$(hostname)" == *"xps"* ]]; then
             echo "xps13"
