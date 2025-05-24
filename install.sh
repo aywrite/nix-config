@@ -6,9 +6,14 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-# Clone repository
+# Clone repository if needed
 mkdir -p ~/.config && cd ~/.config
+if [ ! -d "./nixpkgs" ] || [ -z "$(ls -A ./nixpkgs 2>/dev/null)" ]; then
+    echo "==> Cloning nix-config repository..."
     git clone https://github.com/aywrite/nix-config ./nixpkgs
+else
+    echo "==> nixpkgs directory already exists and is not empty, skipping clone"
+fi
 
 # Check if nix is installed
 if ! command_exists nix; then
@@ -33,6 +38,14 @@ fi
 # Create required directories
 mkdir -p /nix/var/nix/{profiles,gcroots}/per-user/$USER
 chmod 0755 /nix/var/nix/{profiles,gcroots}/per-user/$USER
+
+# Create symbolic link from ~/nix-home to ~/.config/nixpkgs if it doesn't exist
+if [ ! -L "$HOME/nix-home" ]; then
+    echo "==> Creating symbolic link from ~/nix-home to ~/.config/nixpkgs"
+    ln -s "$HOME/.config/nixpkgs" "$HOME/nix-home"
+else
+    echo "==> Symbolic link ~/nix-home already exists"
+fi
 
 echo "Installation complete! You can now use home-manager with flakes:"
 echo "cd ~/.config/nixpkgs"
