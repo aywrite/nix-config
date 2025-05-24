@@ -28,7 +28,7 @@ in
       cls = "clear";
     };
 
-    initExtra = ''
+    initContent = ''
       # Display red dots while waiting for completion
       COMPLETION_WAITING_DOTS="true"
     '' + extraInitExtra;
