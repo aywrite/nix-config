@@ -81,6 +81,7 @@ If the `~/.zsh.local` file exists, it will be automatically sourced. This allows
 - The organisation of my nix files are based on [Hugo Reeves' blog post](https://hugoreeves.com/posts/2019/nix-home)
 - Some of the ideas and files for my nix configuration are based on [Daniel K's - nix-home](https://github.com/danieldk/nix-home)
 - My original dotfiles (pre nix) were based on [Nick Plekhanov's Dotfiles](https://github.com/nicksp/dotfiles)
+- Yubikey/GPG setup based on [Dr. Duh's YubiKey Guide](https://github.com/drduh/YubiKey-Guide)
 
 ### Window Manager
 - My xmonad & xmobar configuration is mostly based on [Ethan Schoonover's - dotfiles-tilingwm](https://github.com/altercation/dotfiles-tilingwm)
@@ -100,23 +101,17 @@ My old theme (`andrew`) was based on the [agnoster](https://github.com/agnoster/
 ## TODO
 
 - Configure restic
-- Write an install script with template/prompts to generate home.nix
-- Figure out how best to manage root user
 
 ### Apps to add
 
-- spotify
 - 1password
 - iterm (mac)
-- rvm
 - nvm
-- virtualenv wrapper
 
 ### Themes
 
 The following are repos/articles I want to look at which I might use ideas from:
 
 - https://github.com/disassembler/network
-
 - [Classy Touch - ZSH Theme](https://github.com/yarisgutierrez/classyTouch_oh-my-zsh)
 - [Typewritten - ZSH Theme](https://github.com/reobin/typewritten)

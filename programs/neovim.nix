@@ -29,7 +29,9 @@ in
       surround
       ale
       LanguageClient-neovim
-      vimwiki
+      # vimwiki is interfering with tab completion in markdown files
+      # fix keymapping before re-enabling
+      #vimwiki
       vim-gitgutter
       # --- Theme ---
       airline
@@ -40,7 +42,7 @@ in
       #vim-haskell-indent
       #vim-prometheus
       Jenkinsfile-vim-syntax
-      arcanist
+      #arcanist
       thrift
       rust-vim
       typescript-vim
