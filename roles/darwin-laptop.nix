@@ -2,10 +2,13 @@
 
 {
   imports = [
+    ./common.nix
     ../programs/zsh.nix
     ../programs/rust.nix
     ../programs/gpg.nix
   ];
+
+  # Username is now set in flake.nix
 
   # Set pinentry program for macOS
   role.pinentryProgram = "${pkgs.pinentry_mac}/bin/pinentry-mac";

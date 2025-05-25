@@ -35,9 +35,16 @@ else
     echo "==> Flakes already enabled in nix.conf"
 fi
 
-# Create required directories
-mkdir -p /nix/var/nix/{profiles,gcroots}/per-user/$USER
-chmod 0755 /nix/var/nix/{profiles,gcroots}/per-user/$USER
+# Create required directories (continue if this fails)
+echo "==> Creating required Nix directories..."
+{
+    mkdir -p /nix/var/nix/{profiles,gcroots}/per-user/$USER
+    chmod 0755 /nix/var/nix/{profiles,gcroots}/per-user/$USER
+    echo "==> Nix directories created successfully"
+} || {
+    echo "==> Warning: Could not create Nix directories. This might be OK if you're not the system administrator."
+    echo "==> The script will continue, but you might encounter permission issues later."
+}
 
 # Create symbolic link from ~/nix-home to ~/.config/nixpkgs if it doesn't exist
 if [ ! -L "$HOME/nix-home" ]; then
@@ -45,6 +52,23 @@ if [ ! -L "$HOME/nix-home" ]; then
     ln -s "$HOME/.config/nixpkgs" "$HOME/nix-home"
 else
     echo "==> Symbolic link ~/nix-home already exists"
+fi
+
+# Install home-manager if it's not already installed
+if ! command_exists home-manager; then
+    echo "==> Installing home-manager..."
+    nix-channel --add https://github.com/nix-community/home-manager/archive/release-$(nix-instantiate --eval -E "(import <nixpkgs> {}).lib.version" | tr -d '\"' | cut -d. -f1,2).tar.gz home-manager
+    nix-channel --update
+
+    # Source the home-manager setup
+    export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}
+
+    # Install home-manager
+    nix-shell '<home-manager>' -A install
+
+    echo "==> home-manager installed successfully"
+else
+    echo "==> home-manager is already installed"
 fi
 
 echo "Installation complete! You can now use home-manager with flakes:"

@@ -1,5 +1,5 @@
 # based on https://github.com/danieldk/nix-home/blob/master/cfg/base-unix.nix
-{ pkgs, ... }:
+{ pkgs, username ? "awright", ... }:
 
 {
   imports = [
@@ -10,8 +10,14 @@
     ../programs/windsurf.nix
   ];
 
-  home.homeDirectory = if pkgs.stdenv.isLinux then "/home/awright" else "/Users/andrew.w";
-  home.username = "andrew.w";
+  # Use the username parameter passed from flake.nix
+  home.username = username;
+
+  # Set home directory based on username and OS
+  home.homeDirectory =
+    if pkgs.stdenv.isLinux
+    then "/home/${username}"
+    else "/Users/${username}";
 
   home.packages = with pkgs; [
     # Basic utilities

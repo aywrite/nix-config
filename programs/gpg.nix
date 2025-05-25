@@ -23,14 +23,7 @@ let
   '';
 in
 {
-  options.role = {
-    pinentryProgram = mkOption {
-      type = types.nullOr types.str;
-      default = null;
-      description = "Path to the pinentry program to use";
-      example = "\${pkgs.pinentry-mac}/bin/pinentry-mac";
-    };
-  };
+  # Note: role.pinentryProgram option is now defined in common.nix
 
   config = {
     programs.gpg = {

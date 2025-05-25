@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./common.nix
     ../programs/zsh.nix
     ../programs/rust.nix
   ];

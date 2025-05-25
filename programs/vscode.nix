@@ -175,11 +175,7 @@ let
 in
 {
   options.role = {
-    isWSL = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether this configuration is for WSL";
-    };
+    # isWSL option is now defined in common.nix
 
     vscodeSettings = mkOption {
       type = types.nullOr (types.attrsOf types.anything);

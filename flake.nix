@@ -37,7 +37,7 @@
       };
 
       # Function to create machine-specific configurations
-      mkHomeConfig = { system ? builtins.currentSystem, extraModules ? [ ] }:
+      mkHomeConfig = { system ? builtins.currentSystem, extraModules ? [ ], username ? "awright" }:
         home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsFor system;
 
@@ -46,7 +46,7 @@
           ] ++ extraModules;
 
           extraSpecialArgs = {
-            inherit spacemacs;
+            inherit spacemacs username;
           };
         };
     in
@@ -72,6 +72,7 @@
 
         "awright-work-mbp" = mkHomeConfig {
           system = "aarch64-darwin";
+          username = "andrew.w";
           extraModules = [
             ./users/awright-cg.nix
             ./machines/mbp-16.nix
