@@ -42,6 +42,9 @@
   };
 
   # Environment
+  # Set the PATH for the entire GUI session, making Nix binaries available everywhere.
+  home.sessionPath = [ "$HOME/.nix-profile/bin" ];
+
   home.sessionVariables = {
     EDITOR = "nvim";
     TERMINAL = "alacritty";
