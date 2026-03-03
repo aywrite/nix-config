@@ -41,3 +41,12 @@ export MANPAGER="less -X"
 
 # use ripgrep for fzf
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+# Vertex
+# Enable Vertex AI integration for Claude
+export CLAUDE_CODE_USE_VERTEX=1
+export CLOUD_ML_REGION="global"
+export ANTHROPIC_VERTEX_PROJECT_ID="dw-access-technology"
+# To customize models
+export ANTHROPIC_MODEL="claude-opus-4-6@default"
+export ANTHROPIC_SMALL_FAST_MODEL="claude-sonnet-4-6@default"
