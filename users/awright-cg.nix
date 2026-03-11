@@ -19,6 +19,7 @@
     minikube
     krew
     terraform
+    opentofu
     sops
     glab
 
