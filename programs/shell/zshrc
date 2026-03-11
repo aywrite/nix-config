@@ -31,6 +31,7 @@ dirs_to_prepend=(
   "$HOME/tools/arcanist/bin"
   "$HOME/tools/"
   "$HOME/.krew/bin"
+  "/Applications/Obsidian.app/Contents/MacOS"
   "/usr/local/opt/bison/bin"
   "/opt/homebrew/bin"
 )
