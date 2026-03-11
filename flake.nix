@@ -3,9 +3,9 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rust-overlay = {
@@ -16,9 +16,13 @@
       url = "github:syl20bnr/spacemacs/master";
       flake = false;
     };
+    gws-cli = {
+      url = "github:googleworkspace/cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, rust-overlay, spacemacs, ... }:
+  outputs = { self, nixpkgs, home-manager, rust-overlay, spacemacs, gws-cli, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
@@ -46,7 +50,7 @@
           ] ++ extraModules;
 
           extraSpecialArgs = {
-            inherit spacemacs username;
+            inherit spacemacs gws-cli username;
           };
         };
     in

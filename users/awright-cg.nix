@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, gws-cli, ... }:
 
 {
   imports = [
@@ -22,6 +22,9 @@
     sops
     glab
 
+    # google workspace
+    gws-cli.packages.${pkgs.system}.default
+
     # ruby
     solargraph
   ];
@@ -32,11 +35,13 @@
 
   programs.git = {
     enable = true;
-    userEmail = "andrew.w@covergenius.com";
-    userName = "Andrew Wright";
     signing.key = "0xA0D1FD637BFB4181";
     signing.signByDefault = true;
-    extraConfig = {
+    settings = {
+      user = {
+        email = "andrew.w@covergenius.com";
+        name = "Andrew Wright";
+      };
       url = {
         "git@github.com:" = {
           insteadOf = "https://github.com/";

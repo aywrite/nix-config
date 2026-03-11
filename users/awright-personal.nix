@@ -25,11 +25,13 @@
 
   programs.git = {
     enable = true;
-    userEmail = "andrew.wright502@gmail.com";
-    userName = "awright";
     signing.key = "0x46BAAEE2AFADB938";
     signing.signByDefault = false;
-    extraConfig = {
+    settings = {
+      user = {
+        email = "andrew.wright502@gmail.com";
+        name = "awright";
+      };
       url = {
         "git@github.com:" = {
           insteadOf = "https://github.com/";

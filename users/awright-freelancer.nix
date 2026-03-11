@@ -18,11 +18,13 @@
 
   programs.git = {
     enable = true;
-    userEmail = "awright@freelancer.com";
-    userName = "awright";
     signing.key = "0x46BAAEE2AFADB938";
     signing.signByDefault = false;
-    extraConfig = {
+    settings = {
+      user = {
+        email = "awright@freelancer.com";
+        name = "awright";
+      };
       url = {
         "git@gitlab.tools.flnltd.com:" = {
           insteadOf = "https://gitlab.tools.flnltd.com/";

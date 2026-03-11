@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  python = pkgs.python311;
+  python = pkgs.python312;
   pythonPackages = python.pkgs;
 
   # Global development tools
